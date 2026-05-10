@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DVLD));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.applicationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drivingLicenseServicesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.NewDrivingLicense = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,6 +57,7 @@
             this.ChangePassword = new System.Windows.Forms.ToolStripMenuItem();
             this.SignOut = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -73,6 +75,18 @@
             this.menuStrip1.Size = new System.Drawing.Size(1446, 36);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::DVLD.Properties.Resources.Gemini_Generated_Image_ije9k7ije9k7ije91;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 36);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1446, 600);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // applicationsToolStripMenuItem
             // 
@@ -112,7 +126,7 @@
             // 
             // LocalDrivingLicense
             // 
-            this.LocalDrivingLicense.Image = global::DVLD.Properties.Resources.Local_Driving_License_512;
+            this.LocalDrivingLicense.Image = global::DVLD.Properties.Resources.Local_32;
             this.LocalDrivingLicense.Name = "LocalDrivingLicense";
             this.LocalDrivingLicense.Size = new System.Drawing.Size(363, 32);
             this.LocalDrivingLicense.Text = "Local Driving License.";
@@ -279,8 +293,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::DVLD.Properties.Resources.Gemini_Generated_Image_pjbf3mpjbf3mpjbf;
             this.ClientSize = new System.Drawing.Size(1446, 636);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
@@ -289,6 +303,7 @@
             this.Text = "DVLD.";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -322,6 +337,7 @@
         private System.Windows.Forms.ToolStripMenuItem currentUserInfoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ChangePassword;
         private System.Windows.Forms.ToolStripMenuItem SignOut;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

@@ -9,3 +9,5 @@ C:\Users\ALSAKHRA PC\Desktop\DVLD\DVLD\obj\Debug\DVLD.csproj.CoreCompileInputs.c
 C:\Users\ALSAKHRA PC\Desktop\DVLD\DVLD\obj\Debug\DVLD.exe
 C:\Users\ALSAKHRA PC\Desktop\DVLD\DVLD\obj\Debug\DVLD.pdb
 C:\Users\ALSAKHRA PC\Desktop\DVLD\DVLD\obj\Debug\DVLD.exe.config
+C:\Users\ALSAKHRA PC\Desktop\DVLD\DVLD\bin\Debug\FastUI.dll
+C:\Users\ALSAKHRA PC\Desktop\DVLD\DVLD\obj\Debug\DVLD.csproj.Up2Date
