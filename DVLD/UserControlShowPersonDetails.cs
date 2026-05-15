@@ -10,16 +10,18 @@ using System.Windows.Forms;
 
 namespace DVLD
 {
-    public partial class DVLD : Form
+    public partial class UserControlShowPersonDetails : UserControl
     {
-        public DVLD()
+        public UserControlShowPersonDetails()
         {
             InitializeComponent();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        
+
+        private void UserControlShowPersonDetails_Load(object sender, EventArgs e)
         {
-           
+
         }
     }
 }

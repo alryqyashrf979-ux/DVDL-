@@ -3,16 +3,34 @@
   "WorkspaceRootPath": "C:\\Users\\ALSAKHRA PC\\Desktop\\DVLD\\DVLD\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{562458E1-4E59-47FD-9F0C-4476208D3CB2}|DVLD.csproj|c:\\users\\alsakhra pc\\desktop\\dvld\\dvld\\dvld.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{562458E1-4E59-47FD-9F0C-4476208D3CB2}|DVLD.csproj|solutionrelative:dvld.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{562458E1-4E59-47FD-9F0C-4476208D3CB2}|DVLD.csproj|C:\\Users\\ALSAKHRA PC\\Desktop\\DVLD\\DVLD\\peoplemainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{562458E1-4E59-47FD-9F0C-4476208D3CB2}|DVLD.csproj|solutionrelative:peoplemainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{562458E1-4E59-47FD-9F0C-4476208D3CB2}|DVLD.csproj|C:\\Users\\ALSAKHRA PC\\Desktop\\DVLD\\DVLD\\dvld.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{562458E1-4E59-47FD-9F0C-4476208D3CB2}|DVLD.csproj|solutionrelative:dvld.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{562458E1-4E59-47FD-9F0C-4476208D3CB2}|DVLD.csproj|C:\\Users\\ALSAKHRA PC\\Desktop\\DVLD\\DVLD\\peoplemainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{562458E1-4E59-47FD-9F0C-4476208D3CB2}|DVLD.csproj|solutionrelative:peoplemainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{562458E1-4E59-47FD-9F0C-4476208D3CB2}|DVLD.csproj|C:\\Users\\ALSAKHRA PC\\Desktop\\DVLD\\DVLD\\dvld.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{562458E1-4E59-47FD-9F0C-4476208D3CB2}|DVLD.csproj|solutionrelative:dvld.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{562458E1-4E59-47FD-9F0C-4476208D3CB2}|DVLD.csproj|c:\\users\\alsakhra pc\\desktop\\dvld\\dvld\\usercontrolshowpersondetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{562458E1-4E59-47FD-9F0C-4476208D3CB2}|DVLD.csproj|solutionrelative:usercontrolshowpersondetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{562458E1-4E59-47FD-9F0C-4476208D3CB2}|DVLD.csproj|c:\\users\\alsakhra pc\\desktop\\dvld\\dvld\\frmshowpersondetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{562458E1-4E59-47FD-9F0C-4476208D3CB2}|DVLD.csproj|solutionrelative:frmshowpersondetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{562458E1-4E59-47FD-9F0C-4476208D3CB2}|DVLD.csproj|c:\\users\\alsakhra pc\\desktop\\dvld\\dvld\\frmshowpersondetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{562458E1-4E59-47FD-9F0C-4476208D3CB2}|DVLD.csproj|solutionrelative:frmshowpersondetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02B484F6-6A96-45D2-816A-10C45A2804AB}|..\\DVLD_DataAccessLayer\\DVLD_DataAccessLayer.csproj|c:\\users\\alsakhra pc\\desktop\\dvld\\dvld_dataaccesslayer\\clspeopledataaccesslayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2245D75C-84D2-4707-B506-41ADA8A936C8}|..\\DVLD_BusinessLayer\\DVLD_BusinessLayer.csproj|c:\\users\\alsakhra pc\\desktop\\dvld\\dvld_businesslayer\\clspeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{562458E1-4E59-47FD-9F0C-4476208D3CB2}|DVLD.csproj|c:\\users\\alsakhra pc\\desktop\\dvld\\dvld\\usercontrolshowpersondetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{562458E1-4E59-47FD-9F0C-4476208D3CB2}|DVLD.csproj|solutionrelative:usercontrolshowpersondetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,44 +40,107 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DVLD.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\ALSAKHRA PC\\Desktop\\DVLD\\DVLD\\DVLD.Designer.cs",
-              "RelativeDocumentMoniker": "DVLD.Designer.cs",
-              "ToolTip": "C:\\Users\\ALSAKHRA PC\\Desktop\\DVLD\\DVLD\\DVLD.Designer.cs",
-              "RelativeToolTip": "DVLD.Designer.cs",
-              "ViewState": "AgIAABEBAAAAAAAAAAAwwCEBAAAAAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "UserControlShowPersonDetails.cs",
+              "DocumentMoniker": "C:\\Users\\ALSAKHRA PC\\Desktop\\DVLD\\DVLD\\UserControlShowPersonDetails.cs",
+              "RelativeDocumentMoniker": "UserControlShowPersonDetails.cs",
+              "ToolTip": "C:\\Users\\ALSAKHRA PC\\Desktop\\DVLD\\DVLD\\UserControlShowPersonDetails.cs",
+              "RelativeToolTip": "UserControlShowPersonDetails.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAkwBsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-10T15:16:11.67Z",
+              "WhenOpened": "2026-05-15T21:23:11.125Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DVLD.cs",
-              "DocumentMoniker": "C:\\Users\\ALSAKHRA PC\\Desktop\\DVLD\\DVLD\\DVLD.cs",
-              "RelativeDocumentMoniker": "DVLD.cs",
-              "ToolTip": "C:\\Users\\ALSAKHRA PC\\Desktop\\DVLD\\DVLD\\DVLD.cs",
-              "RelativeToolTip": "DVLD.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAmwBUAAAALAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "FrmShowPersonDetails.cs",
+              "DocumentMoniker": "C:\\Users\\ALSAKHRA PC\\Desktop\\DVLD\\DVLD\\FrmShowPersonDetails.cs",
+              "RelativeDocumentMoniker": "FrmShowPersonDetails.cs",
+              "ToolTip": "C:\\Users\\ALSAKHRA PC\\Desktop\\DVLD\\DVLD\\FrmShowPersonDetails.cs",
+              "RelativeToolTip": "FrmShowPersonDetails.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAYwCkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-10T14:27:51.943Z",
+              "WhenOpened": "2026-05-15T21:10:02.78Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FrmShowPersonDetails.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ALSAKHRA PC\\Desktop\\DVLD\\DVLD\\FrmShowPersonDetails.cs",
+              "RelativeDocumentMoniker": "FrmShowPersonDetails.cs",
+              "ToolTip": "C:\\Users\\ALSAKHRA PC\\Desktop\\DVLD\\DVLD\\FrmShowPersonDetails.cs [Design]",
+              "RelativeToolTip": "FrmShowPersonDetails.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-15T21:06:27.239Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserControlShowPersonDetails.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ALSAKHRA PC\\Desktop\\DVLD\\DVLD\\UserControlShowPersonDetails.cs",
+              "RelativeDocumentMoniker": "UserControlShowPersonDetails.cs",
+              "ToolTip": "C:\\Users\\ALSAKHRA PC\\Desktop\\DVLD\\DVLD\\UserControlShowPersonDetails.cs [Design]",
+              "RelativeToolTip": "UserControlShowPersonDetails.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-15T21:04:27.767Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "clsPeople.cs",
+              "DocumentMoniker": "C:\\Users\\ALSAKHRA PC\\Desktop\\DVLD\\DVLD_BusinessLayer\\clsPeople.cs",
+              "RelativeDocumentMoniker": "..\\DVLD_BusinessLayer\\clsPeople.cs",
+              "ToolTip": "C:\\Users\\ALSAKHRA PC\\Desktop\\DVLD\\DVLD_BusinessLayer\\clsPeople.cs",
+              "RelativeToolTip": "..\\DVLD_BusinessLayer\\clsPeople.cs",
+              "ViewState": "AgIAAKoAAAAAAAAAAAA2wLoAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T11:44:24.747Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "clsPeopleDataAccessLayer.cs",
+              "DocumentMoniker": "C:\\Users\\ALSAKHRA PC\\Desktop\\DVLD\\DVLD_DataAccessLayer\\clsPeopleDataAccessLayer.cs",
+              "RelativeDocumentMoniker": "..\\DVLD_DataAccessLayer\\clsPeopleDataAccessLayer.cs",
+              "ToolTip": "C:\\Users\\ALSAKHRA PC\\Desktop\\DVLD\\DVLD_DataAccessLayer\\clsPeopleDataAccessLayer.cs",
+              "RelativeToolTip": "..\\DVLD_DataAccessLayer\\clsPeopleDataAccessLayer.cs",
+              "ViewState": "AgIAAPUBAAAAAAAAAAAAAAQCAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T11:29:27.555Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "DVLD.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\ALSAKHRA PC\\Desktop\\DVLD\\DVLD\\DVLD.cs",
-              "RelativeDocumentMoniker": "DVLD.cs",
-              "ToolTip": "C:\\Users\\ALSAKHRA PC\\Desktop\\DVLD\\DVLD\\DVLD.cs [Design]",
-              "RelativeToolTip": "DVLD.cs [Design]",
+              "Title": "PeopleMainForm.cs",
+              "DocumentMoniker": "C:\\Users\\ALSAKHRA PC\\Desktop\\DVLD\\DVLD\\PeopleMainForm.cs",
+              "RelativeDocumentMoniker": "PeopleMainForm.cs",
+              "ToolTip": "C:\\Users\\ALSAKHRA PC\\Desktop\\DVLD\\DVLD\\PeopleMainForm.cs",
+              "RelativeToolTip": "PeopleMainForm.cs",
+              "ViewState": "AgIAANkAAAAAAAAAAAAEwOYAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-09T15:28:52.997Z",
+              "WhenOpened": "2026-05-13T14:44:47.575Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PeopleMainForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ALSAKHRA PC\\Desktop\\DVLD\\DVLD\\PeopleMainForm.cs",
+              "RelativeDocumentMoniker": "PeopleMainForm.cs",
+              "ToolTip": "C:\\Users\\ALSAKHRA PC\\Desktop\\DVLD\\DVLD\\PeopleMainForm.cs [Design]",
+              "RelativeToolTip": "PeopleMainForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T14:23:18.746Z",
               "EditorCaption": " [Design]"
             }
           ]
