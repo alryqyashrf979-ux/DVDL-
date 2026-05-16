@@ -36,9 +36,9 @@
             this.PeopleCMS = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addPersonToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
-            this.updatePersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sendEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.upatePersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeleteEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.phoneCallToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
             this.sendEmailToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.phoneCallToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -99,14 +99,14 @@
             this.PeopleCMS.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showDetailsToolStripMenuItem,
             this.addPersonToolStripMenuItem,
-            this.updatePersonToolStripMenuItem,
-            this.deleteToolStripMenuItem,
-            this.sendEmailToolStripMenuItem,
+            this.upatePersonToolStripMenuItem,
+            this.EditToolStripMenuItem,
+            this.DeleteEmailToolStripMenuItem,
             this.phoneCallToolStripMenuItem,
             this.sendEmailToolStripMenuItem1,
             this.phoneCallToolStripMenuItem1});
             this.PeopleCMS.Name = "PeopleCMS";
-            this.PeopleCMS.Size = new System.Drawing.Size(222, 172);
+            this.PeopleCMS.Size = new System.Drawing.Size(222, 200);
             // 
             // showDetailsToolStripMenuItem
             // 
@@ -123,30 +123,32 @@
             this.addPersonToolStripMenuItem.Size = new System.Drawing.Size(218, 6);
             this.addPersonToolStripMenuItem.Click += new System.EventHandler(this.addPersonToolStripMenuItem_Click);
             // 
-            // updatePersonToolStripMenuItem
+            // upatePersonToolStripMenuItem
             // 
-            this.updatePersonToolStripMenuItem.Image = global::DVLD.Properties.Resources.Add_Person_40;
-            this.updatePersonToolStripMenuItem.Name = "updatePersonToolStripMenuItem";
-            this.updatePersonToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.A)));
-            this.updatePersonToolStripMenuItem.Size = new System.Drawing.Size(221, 26);
-            this.updatePersonToolStripMenuItem.Text = "Add .";
-            this.updatePersonToolStripMenuItem.Click += new System.EventHandler(this.updatePersonToolStripMenuItem_Click);
+            this.upatePersonToolStripMenuItem.Image = global::DVLD.Properties.Resources.Add_Person_40;
+            this.upatePersonToolStripMenuItem.Name = "upatePersonToolStripMenuItem";
+            this.upatePersonToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.A)));
+            this.upatePersonToolStripMenuItem.Size = new System.Drawing.Size(221, 26);
+            this.upatePersonToolStripMenuItem.Text = "Add .";
+            this.upatePersonToolStripMenuItem.Click += new System.EventHandler(this.AddPersonToolStripMenuItem_Click);
             // 
-            // deleteToolStripMenuItem
+            // EditToolStripMenuItem
             // 
-            this.deleteToolStripMenuItem.Image = global::DVLD.Properties.Resources.edit_32;
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.E)));
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(221, 26);
-            this.deleteToolStripMenuItem.Text = "Edit .";
+            this.EditToolStripMenuItem.Image = global::DVLD.Properties.Resources.edit_32;
+            this.EditToolStripMenuItem.Name = "EditToolStripMenuItem";
+            this.EditToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.E)));
+            this.EditToolStripMenuItem.Size = new System.Drawing.Size(221, 26);
+            this.EditToolStripMenuItem.Text = "Edit .";
+            this.EditToolStripMenuItem.Click += new System.EventHandler(this.EditToolStripMenuItem_Click);
             // 
-            // sendEmailToolStripMenuItem
+            // DeleteEmailToolStripMenuItem
             // 
-            this.sendEmailToolStripMenuItem.Image = global::DVLD.Properties.Resources.Delete_User_32;
-            this.sendEmailToolStripMenuItem.Name = "sendEmailToolStripMenuItem";
-            this.sendEmailToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.D)));
-            this.sendEmailToolStripMenuItem.Size = new System.Drawing.Size(221, 26);
-            this.sendEmailToolStripMenuItem.Text = "Delete .";
+            this.DeleteEmailToolStripMenuItem.Image = global::DVLD.Properties.Resources.Delete_User_32;
+            this.DeleteEmailToolStripMenuItem.Name = "DeleteEmailToolStripMenuItem";
+            this.DeleteEmailToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.D)));
+            this.DeleteEmailToolStripMenuItem.Size = new System.Drawing.Size(221, 26);
+            this.DeleteEmailToolStripMenuItem.Text = "Delete .";
+            this.DeleteEmailToolStripMenuItem.Click += new System.EventHandler(this.DeleteEmailToolStripMenuItem_Click);
             // 
             // phoneCallToolStripMenuItem
             // 
@@ -159,6 +161,7 @@
             this.sendEmailToolStripMenuItem1.Name = "sendEmailToolStripMenuItem1";
             this.sendEmailToolStripMenuItem1.Size = new System.Drawing.Size(221, 26);
             this.sendEmailToolStripMenuItem1.Text = "Send e-mail .";
+            this.sendEmailToolStripMenuItem1.Click += new System.EventHandler(this.sendEmailToolStripMenuItem1_Click);
             // 
             // phoneCallToolStripMenuItem1
             // 
@@ -166,6 +169,7 @@
             this.phoneCallToolStripMenuItem1.Name = "phoneCallToolStripMenuItem1";
             this.phoneCallToolStripMenuItem1.Size = new System.Drawing.Size(221, 26);
             this.phoneCallToolStripMenuItem1.Text = "Phone call .";
+            this.phoneCallToolStripMenuItem1.Click += new System.EventHandler(this.phoneCallToolStripMenuItem1_Click);
             // 
             // cbPeopleFilter
             // 
@@ -277,6 +281,7 @@
             this.Controls.Add(this.LBPeople);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PeopleMainForm";
+            this.Text = "People Management .";
             this.Load += new System.EventHandler(this.PeopleMainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.PeopleCMS.ResumeLayout(false);
@@ -299,9 +304,9 @@
         private System.Windows.Forms.ComboBox cbNationalities;
         private System.Windows.Forms.ContextMenuStrip PeopleCMS;
         private System.Windows.Forms.ToolStripMenuItem showDetailsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem updatePersonToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sendEmailToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem upatePersonToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem EditToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DeleteEmailToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator addPersonToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator phoneCallToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sendEmailToolStripMenuItem1;

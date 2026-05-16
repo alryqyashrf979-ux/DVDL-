@@ -12,13 +12,13 @@ namespace DVLD
 {
     public partial class PeopleMainForm : Form
     {
-         public void FillComboBoxWithCountries()
+        static public void FillComboBoxWithCountries(ComboBox CB)
         {
             DataTable dt = new DataTable();
             dt = clsPeople.GetAllCountries();
             foreach(DataRow row in dt.Rows)
             {
-                cbNationalities.Items.Add(row[0].ToString());
+                CB.Items.Add(row[0].ToString());
             }
 
         }
@@ -36,7 +36,7 @@ namespace DVLD
         private void PeopleMainForm_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = clsPeople.GetAllPpl();
-            FillComboBoxWithCountries();
+            FillComboBoxWithCountries(cbNationalities);
             cbPeopleFilter.SelectedIndex = 0;
             txtFilterPeople.Visible = false;
             cbNationalities.Visible=false;
@@ -46,7 +46,8 @@ namespace DVLD
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
+            frmAddEditPerson PersonForm = new frmAddEditPerson();
+            PersonForm.ShowDialog();
         }
 
         private void cbPeopleFilter_SelectedIndexChanged(object sender, EventArgs e)
@@ -214,9 +215,10 @@ namespace DVLD
 
         }
 
-        private void updatePersonToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AddPersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmAddEditPerson AddPersonForm = new frmAddEditPerson();
+            AddPersonForm.ShowDialog();
         }
 
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -229,6 +231,37 @@ namespace DVLD
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void EditToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddEditPerson frmAddEditPerson = new frmAddEditPerson(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value));
+            frmAddEditPerson.ShowDialog();
+        }
+
+        private void DeleteEmailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(clsPeople.DeletePerson(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value)))
+            {
+                if(MessageBox.Show("Are you sure you want to delete this Person form the system ??","Question.",MessageBoxButtons.OKCancel
+                    ,MessageBoxIcon.Question)==DialogResult.OK)
+                MessageBox.Show("Person was deleted successfully .","Confirmation.",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                else MessageBox.Show("Person was not deleted .", "Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+                MessageBox.Show("Person was not deleted . \n There must have been some records associated to this person .", "Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+        }
+
+        private void sendEmailToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            // Send Email , this event will be handled later on .
+        }
+
+        private void phoneCallToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            // Phone call will be handled later , after API course .
+            
         }
     }
 }

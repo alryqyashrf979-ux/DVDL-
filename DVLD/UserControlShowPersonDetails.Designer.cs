@@ -106,6 +106,7 @@
             this.GBPersonDetails.TabIndex = 0;
             this.GBPersonDetails.TabStop = false;
             this.GBPersonDetails.Text = "Person Information :";
+            this.GBPersonDetails.Enter += new System.EventHandler(this.GBPersonDetails_Enter);
             // 
             // pictureBox9
             // 

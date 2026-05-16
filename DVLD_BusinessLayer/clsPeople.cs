@@ -123,7 +123,7 @@ namespace DVLD_BusinessLayer
         {
             int PersonID = -1;
 
-            if(clsPeopleDataAccessLayer.DoesNationalNoExist(NationalNo)&&clsUtil.IsValidEmail(Email)
+            if(!clsPeopleDataAccessLayer.DoesNationalNoExist(NationalNo)&&clsUtil.IsValidEmail(Email)
                 && clsUtil.IsPersonAgeGreaterThanSpecificAge(DateOfBirth,18))
             {
                 PersonID = clsPeopleDataAccessLayer.AddPerson(NationalNo, FirstName, SecondName, ThirdName, LastName, DateOfBirth, Gendre,
@@ -140,7 +140,7 @@ namespace DVLD_BusinessLayer
 
         public bool Update()
         {
-            return clsPeopleDataAccessLayer.UpdatePerson(NationalNo, FirstName, SecondName, ThirdName, LastName, DateOfBirth, Gendre
+            return clsPeopleDataAccessLayer.UpdatePerson(PersonID,NationalNo, FirstName, SecondName, ThirdName, LastName, DateOfBirth, Gendre
                 , Address, Phone, Email, NationalCountryID, ImagePath);
         }
         static public DataTable GetAllPpl()
@@ -198,7 +198,7 @@ namespace DVLD_BusinessLayer
         {
             return clsPeopleDataAccessLayer.FilterPeopleUsingEmail(Email);
         }
-        static public bool DeoesNationalNoExist(string NationalNo)
+        static public bool DoesNationalNoExist(string NationalNo)
         {
             return clsPeopleDataAccessLayer.DoesNationalNoExist(NationalNo);
         }

@@ -23,5 +23,10 @@ namespace DVLD
         {
 
         }
+
+        private void GBPersonDetails_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

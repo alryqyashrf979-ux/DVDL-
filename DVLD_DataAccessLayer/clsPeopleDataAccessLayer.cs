@@ -113,7 +113,7 @@ namespace DVLD_DataAccessLayer
           
             string Query = "\t\t\t\tinsert into People (NationalNo , FirstName , SecondName , ThirdName , LastName , DateOfBirth , Gendor , Address ," +
                 "\r\n\t\t\t\tPhone , Email , NationalityCountryID , ImagePath )\r\n\t\t\t\t" +
-                "values ( @NaitonalNo , @FirstName,@SecondName,@ThirdName, @LastName " +
+                "values ( @NationalNo , @FirstName,@SecondName,@ThirdName, @LastName " +
                 ", @DateOfBirth,@Gendre ,@Address,@Phone ,@Email,@NationalityCountryID,@ImagePath) ; select SCOPE_IDENTITY(); ";
             using (SqlConnection connection = new SqlConnection(clsDVLDDataAccessSettings.ConnectionString))
                 using (SqlCommand command = new SqlCommand(Query,connection))
@@ -156,7 +156,7 @@ namespace DVLD_DataAccessLayer
 
 
 
-        static public bool UpdatePerson(string NationalNo , string FirstName , string SecondName , string ThirdName , string LastName 
+        static public bool UpdatePerson(int PersonID ,string NationalNo , string FirstName , string SecondName , string ThirdName , string LastName 
             , DateTime DateOfBirth , char Gendre , string Address , string Phone , string Email , int NationalityCountryId , string ImagePath )
         {
             string Query = "Update People \r\nset \r\nNationalNo = @NationalNo " +
@@ -170,7 +170,8 @@ namespace DVLD_DataAccessLayer
                 using (SqlCommand cmd = new SqlCommand(Query , connection))
             {
                 connection.Open();
-              cmd.Parameters.Add("@NationalNo", SqlDbType.NVarChar).Value = NationalNo;
+                cmd.Parameters.Add("@PersonID", SqlDbType.NVarChar).Value = PersonID;
+                cmd.Parameters.Add("@NationalNo", SqlDbType.NVarChar).Value = NationalNo;
               cmd.Parameters.Add("@FirstName", SqlDbType.NVarChar).Value = FirstName;
               cmd.Parameters.Add("@SecondName", SqlDbType.NVarChar).Value = SecondName;
               cmd.Parameters.Add("@ThirdName", SqlDbType.NVarChar).Value = ThirdName;
@@ -196,20 +197,36 @@ namespace DVLD_DataAccessLayer
 
         static public bool DeletePerson(int PersonID )
         {
+            bool Result = false;
             if(!DoesPersonExist(PersonID))
             {
-                return false;
+                return Result;
             }
             string Query = "delete from People where PersonID = @PersonID";
-            using (SqlConnection connection = new SqlConnection( clsDVLDDataAccessSettings.ConnectionString))
-                using (SqlCommand cmd = new SqlCommand( Query , connection))
-            { 
+            SqlConnection connection = new SqlConnection(clsDVLDDataAccessSettings.ConnectionString);
+            SqlCommand cmd = new SqlCommand(Query, connection);
+                try
+            {
                 connection.Open();
+                cmd.Parameters.AddWithValue("@PersonID", PersonID);
                 int AffectedRows = cmd.ExecuteNonQuery();
-                return AffectedRows > 0;
-
+                
+                Result = ( AffectedRows > 0 );
             }
+            catch (Exception ex) {
+               
+                Result= false;
+            }
+            finally
+            {
+                connection.Close();
+              
+            }
+
+            return Result;
+
         }
+      
         static public bool DoesNationalNoExist(string NationalNo)
         {
           
@@ -228,7 +245,7 @@ namespace DVLD_DataAccessLayer
 
         static public bool DoesPersonExist(int PersonID)
         {
-            string Query = "  select 1 from People where PersonnID = @PersonID";
+            string Query = "  select 1 from People where PersonID = @PersonID";
             using (SqlConnection connection = new SqlConnection(clsDVLDDataAccessSettings.ConnectionString))
             using (SqlCommand cmd = new SqlCommand(Query, connection))
             {

@@ -18,3 +18,4 @@ C:\Users\ALSAKHRA PC\Desktop\DVLD\DVLD\bin\Debug\DVLD_DataAccessLayer.pdb
 C:\Users\ALSAKHRA PC\Desktop\DVLD\DVLD\obj\Debug\DVLD.FrmShowPersonDetails.resources
 C:\Users\ALSAKHRA PC\Desktop\DVLD\DVLD\obj\Debug\DVLD.UserControlShowPersonDetails.resources
 C:\Users\ALSAKHRA PC\Desktop\DVLD\DVLD\obj\Debug\DVLD.MainForm.resources
+C:\Users\ALSAKHRA PC\Desktop\DVLD\DVLD\obj\Debug\DVLD.frmAddEditPerson.resources
