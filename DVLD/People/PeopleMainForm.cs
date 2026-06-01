@@ -20,7 +20,6 @@ namespace DVLD
             {
                 CB.Items.Add(row[0].ToString());
             }
-
         }
         public PeopleMainForm()
         {
@@ -43,12 +42,12 @@ namespace DVLD
            lbRecordsCount.Text= dataGridView1.Rows.Count.ToString();
 
         }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             frmAddEditPerson PersonForm = new frmAddEditPerson();
             PersonForm.ShowDialog();
         }
+
 
         private void cbPeopleFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -59,6 +58,7 @@ namespace DVLD
                 case 0:
                     {
                         txtFilterPeople.Visible = false;
+                        cbNationalities.Visible = false;
                         dataGridView1.DataSource = clsPeople.GetAllPpl();
                         break;
                     }
@@ -127,10 +127,7 @@ namespace DVLD
             }
         }
 
-        private void txtFilterPeople_TextChanged(object sender, EventArgs e)
-        {
-          
-        }
+      
 
         private void txtFilterPeople_TextChanged_1(object sender, EventArgs e)
         {
@@ -210,15 +207,12 @@ namespace DVLD
             lbRecordsCount.Text = dataGridView1.Rows.Count.ToString();
         }
 
-        private void addPersonToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
+     
         private void AddPersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAddEditPerson AddPersonForm = new frmAddEditPerson();
             AddPersonForm.ShowDialog();
+            RefreshForm();
         }
 
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -226,6 +220,7 @@ namespace DVLD
             
             FrmShowPersonDetails personDetailsForm = new FrmShowPersonDetails(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value));
             personDetailsForm.ShowDialog();
+           
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -237,15 +232,20 @@ namespace DVLD
         {
             frmAddEditPerson frmAddEditPerson = new frmAddEditPerson(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value));
             frmAddEditPerson.ShowDialog();
+            RefreshForm();
         }
 
         private void DeleteEmailToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if(clsPeople.DeletePerson(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value)))
             {
-                if(MessageBox.Show("Are you sure you want to delete this Person form the system ??","Question.",MessageBoxButtons.OKCancel
-                    ,MessageBoxIcon.Question)==DialogResult.OK)
-                MessageBox.Show("Person was deleted successfully .","Confirmation.",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                if (MessageBox.Show("Are you sure you want to delete this Person form the system ??", "Question.", MessageBoxButtons.OKCancel
+                    , MessageBoxIcon.Question) == DialogResult.OK)
+                {
+
+                    MessageBox.Show("Person was deleted successfully .", "Confirmation.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefreshForm();
+                }
                 else MessageBox.Show("Person was not deleted .", "Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
@@ -262,6 +262,27 @@ namespace DVLD
         {
             // Phone call will be handled later , after API course .
             
+        }
+        private void RefreshForm
+            ()
+        {
+            dataGridView1.DataSource = clsPeople.GetAllPpl();
+            lbRecordsCount.Text = dataGridView1.Rows.Count.ToString();
+        }
+
+        private void txtFilterPeople_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(FilterPeople==enFilterPeople.PersonID)
+            {
+                e.Handled = (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar));
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmAddEditPerson ADDForm = new frmAddEditPerson();
+            ADDForm.ShowDialog();
+            RefreshForm();
         }
     }
 }

@@ -38,8 +38,7 @@ namespace DVLD
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormTry T = new FormTry();
-            T.Show();
+          
 
         }
     }

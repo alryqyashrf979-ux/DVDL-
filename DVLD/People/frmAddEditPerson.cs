@@ -75,7 +75,7 @@ namespace DVLD
             DTPDateOfBirth.MinDate = DateTime.Now.AddYears(-100);
 
             //this will set default country to Yemen.
-            cbCountries.SelectedIndex = 189;
+            cbCountries.SelectedIndex = 190;
 
             txtFirstName.Text = "";
             txtSecondName.Text = "";

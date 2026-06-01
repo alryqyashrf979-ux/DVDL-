@@ -49,11 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormTry.cs">
+    <Compile Include="FrmFindPerson.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormTry.Designer.cs">
-      <DependentUpon>FormTry.cs</DependentUpon>
+    <Compile Include="FrmFindPerson.Designer.cs">
+      <DependentUpon>FrmFindPerson.cs</DependentUpon>
     </Compile>
     <Compile Include="People\frmAddEditPerson.cs">
       <SubType>Form</SubType>
@@ -87,14 +87,14 @@
     <Compile Include="People\People Controls\UserControlShowPersonDetails.Designer.cs">
       <DependentUpon>UserControlShowPersonDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControlShowPersonCardWithFilter.cs">
+    <Compile Include="People\People Controls\UserControlShowPersonCardWithFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControlShowPersonCardWithFilter.Designer.cs">
+    <Compile Include="People\People Controls\UserControlShowPersonCardWithFilter.Designer.cs">
       <DependentUpon>UserControlShowPersonCardWithFilter.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FormTry.resx">
-      <DependentUpon>FormTry.cs</DependentUpon>
+    <EmbeddedResource Include="FrmFindPerson.resx">
+      <DependentUpon>FrmFindPerson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\frmAddEditPerson.resx">
       <DependentUpon>frmAddEditPerson.cs</DependentUpon>
@@ -121,7 +121,7 @@
     <EmbeddedResource Include="People\People Controls\UserControlShowPersonDetails.resx">
       <DependentUpon>UserControlShowPersonDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControlShowPersonCardWithFilter.resx">
+    <EmbeddedResource Include="People\People Controls\UserControlShowPersonCardWithFilter.resx">
       <DependentUpon>UserControlShowPersonCardWithFilter.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

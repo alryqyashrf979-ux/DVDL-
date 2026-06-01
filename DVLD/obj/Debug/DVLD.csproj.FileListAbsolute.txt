@@ -40,5 +40,5 @@ C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.csproj.AssemblyReference
 C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.exe.config
 C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.csproj.CoreCompileInputs.cache
 C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.csproj.Up2Date
-C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.FormTry.resources
 C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.UserControlShowPersonCardWithFilter.resources
+C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.FrmFindPerson.resources
