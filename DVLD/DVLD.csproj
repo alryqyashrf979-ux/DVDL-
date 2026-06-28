@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -36,8 +37,13 @@
     <Reference Include="FastUI, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\FastUI.WinForms.1.1.0\lib\net48\FastUI.dll</HintPath>
     </Reference>
+    <Reference Include="Guna.UI">
+      <HintPath>..\..\Guna.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,11 +55,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmFindPerson.cs">
+    <Compile Include="Global classes\clsFormat.cs" />
+    <Compile Include="Global classes\clsUtil.cs" />
+    <Compile Include="Global classes\clsVaidations1.cs" />
+    <Compile Include="Users\Current User Info .cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmFindPerson.Designer.cs">
+    <Compile Include="Users\Current User Info .Designer.cs">
+      <DependentUpon>Current User Info .cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\frmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\frmChangePassword.Designer.cs">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\FrmFindPerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="People\FrmFindPerson.Designer.cs">
       <DependentUpon>FrmFindPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogIn\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogIn\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\FrmUsersMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\FrmUsersMainForm.Designer.cs">
+      <DependentUpon>FrmUsersMainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="People\frmAddEditPerson.cs">
       <SubType>Form</SubType>
@@ -93,8 +126,26 @@
     <Compile Include="People\People Controls\UserControlShowPersonCardWithFilter.Designer.cs">
       <DependentUpon>UserControlShowPersonCardWithFilter.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FrmFindPerson.resx">
+    <Compile Include="Users\Users Controls\UserControlUserInfoCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Users\Users Controls\UserControlUserInfoCard.Designer.cs">
+      <DependentUpon>UserControlUserInfoCard.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Users\Current User Info .resx">
+      <DependentUpon>Current User Info .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\frmChangePassword.resx">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\FrmFindPerson.resx">
       <DependentUpon>FrmFindPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogIn\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\FrmUsersMainForm.resx">
+      <DependentUpon>FrmUsersMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\frmAddEditPerson.resx">
       <DependentUpon>frmAddEditPerson.cs</DependentUpon>
@@ -123,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="People\People Controls\UserControlShowPersonCardWithFilter.resx">
       <DependentUpon>UserControlShowPersonCardWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\Users Controls\UserControlUserInfoCard.resx">
+      <DependentUpon>UserControlUserInfoCard.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -299,6 +353,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SearchPerson1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gemini_Generated_Image_ije9k7ije9k7ije92.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gemini_Generated_Image_ije9k7ije9k7ije93.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gemini_Generated_Image_ije9k7ije9k7ije94.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\تنزيل %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Show.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hide .png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add New User 72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add New User 721.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete User 321.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -49,7 +49,7 @@ namespace DVLD
             }
             _FillDataToPersonCard();
         }
-        private void _SetAllControls()
+        public void _SetAllControls()
         {
             LbPersonID.Text = "[????]";
             LbAddress.Text = "[????]";

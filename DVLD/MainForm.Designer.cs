@@ -264,6 +264,7 @@
             this.currentUserInfoToolStripMenuItem.Name = "currentUserInfoToolStripMenuItem";
             this.currentUserInfoToolStripMenuItem.Size = new System.Drawing.Size(269, 32);
             this.currentUserInfoToolStripMenuItem.Text = "Current User Info.";
+            this.currentUserInfoToolStripMenuItem.Click += new System.EventHandler(this.currentUserInfoToolStripMenuItem_Click);
             // 
             // ChangePassword
             // 
@@ -271,6 +272,7 @@
             this.ChangePassword.Name = "ChangePassword";
             this.ChangePassword.Size = new System.Drawing.Size(269, 32);
             this.ChangePassword.Text = "Change Password .";
+            this.ChangePassword.Click += new System.EventHandler(this.ChangePassword_Click);
             // 
             // SignOut
             // 
@@ -278,6 +280,7 @@
             this.SignOut.Name = "SignOut";
             this.SignOut.Size = new System.Drawing.Size(269, 32);
             this.SignOut.Text = "Sign out .";
+            this.SignOut.Click += new System.EventHandler(this.SignOut_Click);
             // 
             // pictureBox1
             // 
@@ -307,6 +310,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DVLD.";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -34,5 +34,10 @@ namespace DVLD
             this.Close();
             //DataBack.Invoke(this, userControlShowPersonCardWithFilter1.PersonID);
         }
+
+        private void userControlShowPersonCardWithFilter1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

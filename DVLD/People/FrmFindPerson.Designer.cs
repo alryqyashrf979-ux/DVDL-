@@ -41,6 +41,7 @@
             this.userControlShowPersonCardWithFilter1.ShowPersonCard = true;
             this.userControlShowPersonCardWithFilter1.Size = new System.Drawing.Size(1234, 499);
             this.userControlShowPersonCardWithFilter1.TabIndex = 0;
+            this.userControlShowPersonCardWithFilter1.Load += new System.EventHandler(this.userControlShowPersonCardWithFilter1_Load);
             // 
             // label1
             // 

@@ -3,40 +3,48 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 namespace DVLD_BusinessLayer
 {
     static  public class clsUtil
     {
-        static public bool IsValidEmail(string email)
+     static  public string GenerateGuid()
         {
-			try
-			{
-				MailAddress mail = new MailAddress(email);
-				return mail.Address.Equals(email);
-			}
-			catch 
-			{
-				return false;
-			}
+            return Guid.NewGuid().ToString();
         }
-        public static bool IsPersonAgeGreaterThanSpecificAge(DateTime dateOfBirth, int age)
+        static public bool CreateDirectoryIfDoesNotExist(string Path)
         {
-            DateTime today = DateTime.Today;
+            if (Directory.Exists(Path))
+            {
+                return true;
+            }
+            else
+            {
+                try
+                {
+                    Directory.CreateDirectory(Path);
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error creating folder: " + ex.Message);
+                    return false;
+                }
+            }
+        }
 
-            int personAge = today.Year - dateOfBirth.Year;
-
-            // Check if birthday has not occurred yet this year
-            if (dateOfBirth.Date > today.AddYears(-personAge))
-                personAge--;
-
-            return personAge >= age;
+        static public string ReplaceFileNameWithGuid(string FileName)
+        {
+            string uniqueId = GenerateGuid();
+            string extension = Path.GetExtension(FileName);
+            return uniqueId + extension;
         }
 
         static public bool CopyImageFromPlaceToAnotherAndGiveItAGuid( ref string sourceFilePath, string targetDirectory)
         {
-
             try
             {
                 // 2. Define the target directory on the other drive
@@ -44,16 +52,15 @@ namespace DVLD_BusinessLayer
                 
 
                 // Create the directory if it doesn't exist yet
-                if (!Directory.Exists(targetDirectory))
+                if (!CreateDirectoryIfDoesNotExist(targetDirectory))
                 {
-                    Directory.CreateDirectory(targetDirectory);
+                    return false;
                 }
                 // 3. Generate a unique GUID and grab the original file extension
-                string uniqueId = Guid.NewGuid().ToString();
-                string extension = Path.GetExtension(sourceFilePath); // e.g., ".jpg" or ".png"
+                // e.g., ".jpg" or ".png"
 
                 // Combine them to create the new file name (e.g., "1234abcd-...jpg")
-                string newFileName = uniqueId + extension;
+                string newFileName = targetDirectory + ReplaceFileNameWithGuid(sourceFilePath);
 
                 // 4. Combine target directory and new file name for the final path
                 string destinationFilePath = Path.Combine(targetDirectory, newFileName);
@@ -63,12 +70,14 @@ namespace DVLD_BusinessLayer
 
                 // Success message
                 //MessageBox.Show($"Photo successfully saved to:\n{destinationFilePath}",
-                //                "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //
+                //   "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                sourceFilePath = destinationFilePath;
                 return true;
             }
-            catch (Exception)
+            catch (IOException Ioex)
             {
-                // Handle potential errors (e.g., Drive not found, Permission issues)
+                MessageBox.Show(Ioex.Message, "Error .", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 

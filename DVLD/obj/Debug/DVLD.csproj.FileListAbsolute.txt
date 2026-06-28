@@ -42,3 +42,9 @@ C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.csproj.CoreCompileInputs
 C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.csproj.Up2Date
 C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.UserControlShowPersonCardWithFilter.resources
 C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.FrmFindPerson.resources
+C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\bin\Debug\Guna.UI.dll
+C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.frmLogin.resources
+C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.frmCurrentUser.resources
+C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.UserControlUserInfoCard.resources
+C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.frmChangePassword.resources
+C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.FrmUsersMainForm.resources
