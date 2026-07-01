@@ -41,7 +41,10 @@ namespace DVLD
 
         private void updateUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            int UserID = Convert.ToInt32(dgvUsers.CurrentRow.Cells[0].Value);
+            frmAddEditUser frmEditPerson = new frmAddEditUser(UserID);
+            frmEditPerson.ShowDialog();
+            Refresh();
         }
 
         private void showUsersInfoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -53,6 +56,7 @@ namespace DVLD
             {
                 frmCurrentUser frmUser = new frmCurrentUser(User);
                 frmUser.ShowDialog();
+                Refresh();
             }
             else
             {
@@ -72,6 +76,7 @@ namespace DVLD
             {
                 frmChangePassword frmUser = new frmChangePassword(User);
                 frmUser.ShowDialog();
+                Refresh();
             }
             else
             {
@@ -235,6 +240,20 @@ namespace DVLD
                     MessageBox.Show("User was not deleted because it is connected to other records ."
                         , "Confirm.", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void addNewUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddEditUser frmAddEditUser = new frmAddEditUser();
+            frmAddEditUser.ShowDialog();
+            Refresh();
+        }
+
+        private void btnAddNewUser_Click(object sender, EventArgs e)
+        {
+            frmAddEditUser frmAddEditUser = new frmAddEditUser();
+            frmAddEditUser.ShowDialog();
+            Refresh();
         }
     }
 }

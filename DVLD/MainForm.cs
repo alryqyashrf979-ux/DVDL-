@@ -72,5 +72,16 @@ namespace DVLD
             frmChangePassword changePasswordForm = new frmChangePassword(CurrentUser);
             changePasswordForm.ShowDialog();
         }
+
+        private void applicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ManageApplicationsTypes_Click(object sender, EventArgs e)
+        {
+            frmAppTypescs AppTypesForm = new frmAppTypescs();
+            AppTypesForm.ShowDialog();
+        }
     }
 }

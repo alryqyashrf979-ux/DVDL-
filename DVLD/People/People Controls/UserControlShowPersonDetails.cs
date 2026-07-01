@@ -19,9 +19,9 @@ namespace DVLD
         public clsPeople Person
         {  get { return _Person; } }
 
-        private int _PersonId;
-        public int PersonId
-        { get { return _PersonId; } }
+        private int _PersonId=-1;
+        public int PersonId 
+         { get { return _Person.PersonID; } }
 
         public UserControlShowPersonDetails()
         {

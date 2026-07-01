@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DVLD.Global_classes
 {
-    internal static class clsVaidations1
+    public static class clsVaidations1
     {
         static public bool IsValidEmail(string email)
         {

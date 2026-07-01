@@ -155,6 +155,7 @@
             this.addNewUserToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
             this.addNewUserToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
             this.addNewUserToolStripMenuItem.Text = "Add New User .";
+            this.addNewUserToolStripMenuItem.Click += new System.EventHandler(this.addNewUserToolStripMenuItem_Click);
             // 
             // changePasswordToolStripMenuItem
             // 
@@ -228,6 +229,7 @@
             this.btnAddNewUser.Size = new System.Drawing.Size(89, 56);
             this.btnAddNewUser.TabIndex = 5;
             this.btnAddNewUser.UseVisualStyleBackColor = true;
+            this.btnAddNewUser.Click += new System.EventHandler(this.btnAddNewUser_Click);
             // 
             // pictureBox1
             // 

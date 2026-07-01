@@ -15,8 +15,8 @@ namespace DVLD_BusinessLayer
         enMode Mode = enMode.Add;
         private int _UserID;
         public int UserID { get { return _UserID; } }
-        private int _PersonID { get; set; }
-        public int PersonID { get { return _PersonID; } }
+      
+        public int PersonID { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public bool IsActive { get; set; }
@@ -24,13 +24,13 @@ namespace DVLD_BusinessLayer
         public clsPeople PersonInfo { get { if (_PersonInfo != null) return _PersonInfo; else return new clsPeople();  } }
 
 
-        clsUser()
+        public clsUser()
         {
             _UserID = -1;
             Password = string.Empty;
             IsActive = true;
             Username = string.Empty;
-            _PersonID = -1;
+            PersonID = -1;
             Mode = enMode.Add;
         }
         public clsUser(int UserID, string Username, string Password ,int PersonID, bool IsActive)
@@ -40,7 +40,7 @@ namespace DVLD_BusinessLayer
             _PersonInfo = clsPeople.FindPerson(PersonID);
             this.IsActive = IsActive;
             this.Username = Username;
-            _PersonID = PersonID;
+            this.PersonID = PersonID;
             Mode = enMode.Update;
         }
 
@@ -50,6 +50,20 @@ namespace DVLD_BusinessLayer
             int PersonID = -1;
             int UserID = -1;
             bool IsFound = clsUserDataAccessLayer.Find(Username, Password, ref PersonID, ref IsActive, ref UserID);
+            if (IsFound)
+            {
+                return new clsUser(UserID, Username, Password, PersonID, IsActive);
+            }
+            return null;
+        }
+        static public clsUser Find(int UserID)
+        {
+
+            bool IsActive = true;
+            int PersonID = -1;
+            string Username = string.Empty;
+          string Password = string.Empty;   
+            bool IsFound = clsUserDataAccessLayer.Find(UserID,ref Username, ref Password, ref PersonID, ref IsActive);
             if (IsFound)
             {
                 return new clsUser(UserID, Username, Password, PersonID, IsActive);
@@ -73,6 +87,10 @@ namespace DVLD_BusinessLayer
         {
             return clsUserDataAccessLayer.DoesUserExist(Username);
         }
+        static public bool DoesUserExist(int  PersonID)
+        {
+            return clsUserDataAccessLayer.DoesUserExist(PersonID);
+        }
         private bool _Add()
         {
             int NewUserID = clsUserDataAccessLayer.AddNewUser(Username, Password, PersonID, IsActive);
@@ -82,7 +100,7 @@ namespace DVLD_BusinessLayer
 
         private bool _Update()
         {
-            return clsUserDataAccessLayer.UpdateUser(Username, IsActive, Password);
+            return clsUserDataAccessLayer.UpdateUser(UserID,Username, IsActive, Password);
         }
 
         public bool Save()

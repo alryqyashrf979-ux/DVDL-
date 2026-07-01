@@ -88,6 +88,7 @@
             this.applicationsToolStripMenuItem.Name = "applicationsToolStripMenuItem";
             this.applicationsToolStripMenuItem.Size = new System.Drawing.Size(162, 32);
             this.applicationsToolStripMenuItem.Text = "Applications.";
+            this.applicationsToolStripMenuItem.Click += new System.EventHandler(this.applicationsToolStripMenuItem_Click);
             // 
             // drivingLicenseServicesToolStripMenuItem
             // 
@@ -216,6 +217,7 @@
             this.ManageApplicationsTypes.Name = "ManageApplicationsTypes";
             this.ManageApplicationsTypes.Size = new System.Drawing.Size(357, 32);
             this.ManageApplicationsTypes.Text = "Manage Applications Types .";
+            this.ManageApplicationsTypes.Click += new System.EventHandler(this.ManageApplicationsTypes_Click);
             // 
             // ManageTestsTypes
             // 

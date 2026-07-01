@@ -1,4 +1,6 @@
-﻿using DVLD.Properties;
+﻿using DVLD.Classes;
+using DVLD.Global_classes;
+using DVLD.Properties;
 using DVLD_BusinessLayer;
 using System;
 using System.Collections.Generic;
@@ -186,7 +188,7 @@ namespace DVLD
                         //then we copy the new image to the image folder after we rename it
                         string SourceImageFile = picBPerson.ImageLocation.ToString();
 
-                        if (clsUtil.CopyImageFromPlaceToAnotherAndGiveItAGuid(ref SourceImageFile, "C:\\Users\\ALSAKHRA PC\\Desktop\\DVLDImages"))
+                        if (clsUtil.CopyImageToProjectImagesFolder(ref SourceImageFile, "C:\\Users\\ALSAKHRA PC\\Desktop\\DVLDImages\\"))
                         {
                             picBPerson.ImageLocation = SourceImageFile;
                             return true;
@@ -230,7 +232,7 @@ namespace DVLD
                     return;
 
                 //validate email format
-                if (!clsUtil.IsValidEmail(txtEmail.Text))
+                if (!clsVaidations1.IsValidEmail(txtEmail.Text))
                 {
                     e.Cancel = true;
                     errorProvider1.SetError(txtEmail, "Invalid Email Address Format!");

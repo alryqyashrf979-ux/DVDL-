@@ -1,4 +1,5 @@
-﻿using DVLD_DataAccessLayer;
+﻿using DVLD.Global_classes;
+using DVLD_DataAccessLayer;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -124,7 +125,7 @@ namespace DVLD_BusinessLayer
             int PersonID = -1;
 
             if(!clsPeopleDataAccessLayer.DoesNationalNoExist(NationalNo)
-                && clsUtil.IsPersonAgeGreaterThanSpecificAge(DateOfBirth,18))
+                && clsVaidations1.IsPersonAgeGreaterThanSpecificAge(DateOfBirth,18))
             {
                 PersonID = clsPeopleDataAccessLayer.AddPerson(NationalNo, FirstName, SecondName, ThirdName, LastName, DateOfBirth, Gendre,
               Address, Phone, Email, NationalCountryID, ImagePath);

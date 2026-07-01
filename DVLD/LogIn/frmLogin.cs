@@ -53,7 +53,8 @@ namespace DVLD
                 {
                     File.WriteAllText(@"C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\Remeber.txt", "");
                 }
-                MainForm frmMainForm = new MainForm(User);
+                clsGlobal.CurrentUser = User;
+                MainForm frmMainForm = new MainForm(clsGlobal.CurrentUser);
                     frmMainForm.ShowDialog();
                 this.Close();
                 }

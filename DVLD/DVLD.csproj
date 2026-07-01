@@ -55,9 +55,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applications\ApplicationTypes\FrmAppTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\ApplicationTypes\FrmAppTypes.Designer.cs">
+      <DependentUpon>FrmAppTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\ApplicationTypes\frmAppTypescs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\ApplicationTypes\frmAppTypescs.Designer.cs">
+      <DependentUpon>frmAppTypescs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\frmAddEditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\frmAddEditUser.Designer.cs">
+      <DependentUpon>frmAddEditUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Global classes\clsGlobal.cs" />
     <Compile Include="Global classes\clsFormat.cs" />
-    <Compile Include="Global classes\clsUtil.cs" />
     <Compile Include="Global classes\clsVaidations1.cs" />
+    <Compile Include="Global classes\util.cs" />
     <Compile Include="Users\Current User Info .cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,8 +151,17 @@
     <Compile Include="Users\Users Controls\UserControlUserInfoCard.Designer.cs">
       <DependentUpon>UserControlUserInfoCard.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Applications\ApplicationTypes\FrmAppTypes.resx">
+      <DependentUpon>FrmAppTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\ApplicationTypes\frmAppTypescs.resx">
+      <DependentUpon>frmAppTypescs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Users\Current User Info .resx">
       <DependentUpon>Current User Info .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\frmAddEditUser.resx">
+      <DependentUpon>frmAddEditUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\frmChangePassword.resx">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
@@ -383,6 +411,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Delete User 321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Next 64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Next 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ApplicationTitle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money 32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

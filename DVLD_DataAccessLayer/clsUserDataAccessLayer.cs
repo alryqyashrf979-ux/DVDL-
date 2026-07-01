@@ -36,10 +36,32 @@ namespace DVLD_DataAccessLayer
                     }
                 }
             }
-
             return false;
+        }
+        static public bool Find(int UserID,ref string Username, ref string Password, ref int PersonID, ref bool IsActive)
+        {
 
+            string Query = "select  * from users " +
+                "\r\nwhere UserID = @UserID ";
+            using (SqlConnection connection = new SqlConnection(clsDVLDDataAccessSettings.ConnectionString))
+            using (SqlCommand command = new SqlCommand(Query, connection))
+            {
+                connection.Open();
+                command.Parameters.AddWithValue("@UserID", UserID);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        Password = (string)reader["Password"];
+                        PersonID = (int)reader["PersonID"];
+                        IsActive = (bool)reader["IsActive"];
+                        Username = (string)reader["Username"];
 
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
         static public bool Find(string Username, string Password, ref int PersonID, ref bool IsActive, ref int UserID)
         {
@@ -74,6 +96,18 @@ namespace DVLD_DataAccessLayer
             {
                 connection.Open();
                 command.Parameters.AddWithValue("@UserName", UserName);
+                object Result = command.ExecuteScalar();
+                return (Result != DBNull.Value && Result != null);
+            }
+        }
+        static public bool DoesUserExist(int PersonID)
+        {
+            string Query = "select 1 from users where PersonID = @PersonID";
+            using (SqlConnection connection = new SqlConnection(clsDVLDDataAccessSettings.ConnectionString))
+            using (SqlCommand command = new SqlCommand(Query, connection))
+            {
+                connection.Open();
+                command.Parameters.AddWithValue("@PersonID", PersonID);
                 object Result = command.ExecuteScalar();
                 return (Result != DBNull.Value && Result != null);
             }
@@ -126,7 +160,32 @@ namespace DVLD_DataAccessLayer
             }
         }
 
-     
+        static public bool UpdateUser(int UserID,string UserName, bool IsActive, string Password)
+        {
+            int AffectedRows = 0;
+            string Query = "\r\nupdate Users\r\nset IsActive = @IsActive , Password = @Password  " +
+                ",Username = @UserName \r\nwhere UserID = @UserID";
+            using (SqlConnection con = new SqlConnection(clsDVLDDataAccessSettings.ConnectionString))
+            using (SqlCommand command = new SqlCommand(Query, con))
+            {
+
+                command.Parameters.Add("@UserName", SqlDbType.NVarChar, 50).Value = UserName;
+                command.Parameters.Add("@IsActive", SqlDbType.Bit).Value = IsActive;
+                command.Parameters.Add("@Password", SqlDbType.NVarChar, 50).Value = Password;
+                command.Parameters.Add("@UserID", SqlDbType.Int).Value = UserID;
+                try
+                {
+                    con.Open();
+                    AffectedRows = command.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+                return AffectedRows > 0;
+            }
+        }
+
 
 
         static public  bool DeleteUser(int UserID)

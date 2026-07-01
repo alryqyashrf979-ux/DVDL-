@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsApplicationTypesDataAccessLayer.cs" />
     <Compile Include="clsPeopleDataAccessLayer.cs" />
     <Compile Include="clsDVLDDataAccessSettings.cs" />
     <Compile Include="clsUserDataAccessLayer.cs" />
