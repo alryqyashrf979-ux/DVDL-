@@ -33,7 +33,7 @@ namespace DVLD
             }
         }
 
-        private int _PersonID;
+        private int _PersonID =-1;
         public int PersonID { get { return userControlShowPersonDetails1.PersonId; } }
         private bool _ShowPersonCard = true;
         public bool ShowPersonCard
@@ -172,6 +172,11 @@ FindNow();
         private void UserControlShowPersonCardWithFilter_Load(object sender, EventArgs e)
         {
             cbFilterPersonby.SelectedIndex = 0;
+        }
+
+        public void Filter_Focus()
+        {
+            txtfilterby.Focus();
         }
     }
 }

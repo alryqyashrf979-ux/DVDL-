@@ -83,5 +83,25 @@ namespace DVLD
             frmAppTypescs AppTypesForm = new frmAppTypescs();
             AppTypesForm.ShowDialog();
         }
+
+        private void ManageTestsTypes_Click(object sender, EventArgs e)
+        {
+            frmTestTypesList testTypesList = new frmTestTypesList();
+            testTypesList.ShowDialog();
+
+        }
+
+        private void LocalDrivingLicenseApplications_Click(object sender, EventArgs e)
+        {
+
+            FrmLocalDrivingLicenseApplications localDrivingLicenseApplications = new FrmLocalDrivingLicenseApplications();
+            localDrivingLicenseApplications.ShowDialog();
+        }
+
+        private void LocalDrivingLicense_Click(object sender, EventArgs e)
+        {
+           frmAddEditLocalDrivingLicenseApplication Add = new frmAddEditLocalDrivingLicenseApplication();
+            Add.ShowDialog();
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace DVLD_BusinessLayer
     {
         enum enMode { AddMode =1 , UpdateMode =2 };
         enMode Mode = enMode.AddMode;
-        private int _PersonID;
+        private int _PersonID =-1;
         public string FirstName {  get; set; }  = string.Empty;
         public string NationalNo { get; set; } = string.Empty;
         public string SecondName { get; set; } = string.Empty;

@@ -15,7 +15,6 @@ namespace DVLD
     {
         enum enFilterUsersBy { None = 0, Username = 1, Full_Name = 2, PersonID = 3, IsActive = 4 };
         enFilterUsersBy FilterMode = enFilterUsersBy.None;
-
         public FrmUsersMainForm()
         {
             InitializeComponent();

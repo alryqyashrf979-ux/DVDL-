@@ -48,7 +48,12 @@ C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.frmCurrentUser.resources
 C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.UserControlUserInfoCard.resources
 C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.frmChangePassword.resources
 C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.FrmUsersMainForm.resources
-C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.Form1.resources
 C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.frmAddEditUser.resources
 C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.frmAppTypescs.resources
 C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.FrmUpdateAppType.resources
+C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.frmTestTypesList.resources
+C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.frmEditTestType.resources
+C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.FrmLocalDrivingLicenseApplications.resources
+C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.frmAddEditLocalDrivingLicenseApplication.resources
+C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.frmShowLocalDrivingLicenseApplication.resources
+C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.userControlLocalDrivingLicenseApplicationInfo.resources

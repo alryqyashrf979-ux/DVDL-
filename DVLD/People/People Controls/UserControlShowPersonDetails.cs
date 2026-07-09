@@ -16,12 +16,13 @@ namespace DVLD
     public partial class UserControlShowPersonDetails : UserControl
     {
         private clsPeople _Person;
+        private int _PersonId = -1;
+
         public clsPeople Person
         {  get { return _Person; } }
 
-        private int _PersonId=-1;
         public int PersonId 
-         { get { return _Person.PersonID; } }
+         { get { return _PersonId ; } }
 
         public UserControlShowPersonDetails()
         {
@@ -37,6 +38,7 @@ namespace DVLD
                 return ;
             }
             _FillDataToPersonCard();
+            
         }
         public void LoadDataToPersonInfoCard(string NationalNo)
         {
@@ -66,6 +68,8 @@ namespace DVLD
 
         private void _FillDataToPersonCard()
         {
+            _PersonId = _Person.PersonID;
+             
             LbPersonID.Text = _Person.PersonID.ToString();
             LbAddress.Text =    _Person.Address.ToString();
             LbBirthDate.Text = _Person.DateOfBirth.ToString("dd/MM/yyyy");

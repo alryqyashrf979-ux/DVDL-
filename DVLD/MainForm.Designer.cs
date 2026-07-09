@@ -119,6 +119,7 @@
             this.LocalDrivingLicense.Name = "LocalDrivingLicense";
             this.LocalDrivingLicense.Size = new System.Drawing.Size(363, 32);
             this.LocalDrivingLicense.Text = "Local Driving License.";
+            this.LocalDrivingLicense.Click += new System.EventHandler(this.LocalDrivingLicense_Click);
             // 
             // InternationalDrivingLicense
             // 
@@ -203,6 +204,7 @@
             this.LocalDrivingLicenseApplications.Name = "LocalDrivingLicenseApplications";
             this.LocalDrivingLicenseApplications.Size = new System.Drawing.Size(480, 32);
             this.LocalDrivingLicenseApplications.Text = "Local Driving License Applications";
+            this.LocalDrivingLicenseApplications.Click += new System.EventHandler(this.LocalDrivingLicenseApplications_Click);
             // 
             // InternationalDrivingLicenseApplications
             // 
@@ -225,6 +227,7 @@
             this.ManageTestsTypes.Name = "ManageTestsTypes";
             this.ManageTestsTypes.Size = new System.Drawing.Size(357, 32);
             this.ManageTestsTypes.Text = "Manage Tests Types .";
+            this.ManageTestsTypes.Click += new System.EventHandler(this.ManageTestsTypes_Click);
             // 
             // peopleToolStripMenuItem
             // 
