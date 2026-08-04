@@ -52,7 +52,7 @@ namespace DVLD
                 LbStatusDate.Text = LocalDrivingLicenseApplication.LastStatusDate.ToString();
                 LbType.Text = LocalDrivingLicenseApplication.ApplicationTypeInfo.ApplicationTypeTitle.ToString();
                 lbID.Text = LocalDrivingLicenseApplication.LocalDrivingLicenseApplicationID .ToString();
-               // lbPassedTests
+                 // PassedTest 
             }
             else
             {
@@ -70,6 +70,11 @@ namespace DVLD
         private void LLBViewLicenseDetails_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // License Info 
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

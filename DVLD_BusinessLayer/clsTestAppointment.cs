@@ -16,18 +16,19 @@ namespace DVLD_BusinessLayer
         enMode Mode = enMode.Add;
         public enum enTestType { Vision = 1, Written = 2, Practical = 3 }
         public enTestType TestType = enTestType.Vision;
-
         private int _TestAppointmentID;
         public int TestAppointmentID { get { return _TestAppointmentID; } }
-
-            // Does it have to have composition for LDLAPPID
+        public clsApplications RetakeApplicationInfo { set; get; }
         public int LocalDrivingLicenseAppID { set; get; }
         public DateTime AppointmentDate { set; get; }
         public decimal PaidFee { set; get; }
         public int CreatedByUserID { set; get; }
         public bool Is_Locked { set; get; }
         public int RetakeAppID { set; get; }
-
+        public int TestID
+        {
+            get { return _GetTestID(_TestAppointmentID) ; }
+        }
         public clsTestAppointment()
         {
             this.Is_Locked = false;
@@ -38,10 +39,10 @@ namespace DVLD_BusinessLayer
             this.PaidFee = default(decimal);
             this._TestAppointmentID = -1;
             this.TestType = enTestType.Vision;
+            this.RetakeApplicationInfo = new clsApplications();
             Mode = enMode.Add;
-
         }
-        public clsTestAppointment(int testAppointmentID, int LDLAppId, DateTime AppointmentDate, decimal PaidFee, int CreatedByUserID
+        public clsTestAppointment(int testAppointmentID, int LDLAppId, enTestType TestType ,DateTime AppointmentDate, decimal PaidFee, int CreatedByUserID
             , bool IsLocked, int RetakeTestAppID)
         {
             this.RetakeAppID = RetakeTestAppID;
@@ -51,19 +52,20 @@ namespace DVLD_BusinessLayer
             this.AppointmentDate = AppointmentDate;
             this.CreatedByUserID = CreatedByUserID;
             this.Is_Locked = IsLocked;
-            this.TestType = enTestType.Vision;
+            this.TestType = TestType;
+            this.RetakeApplicationInfo = clsApplications.Find(RetakeAppID);
             Mode = enMode.Edit;
         }
         static public clsTestAppointment FindByID(int testAppointmentID)
         {
             int testType = -1; decimal PaidFee = default(decimal); int LDLAppID = -1;
-            DateTime AppointmentDate = DateTime.Now; int CreatedByUserID = -1; int RetakeAppID = -1;
+            DateTime AppointmentDate = DateTime.Now ; int CreatedByUserID = -1; int RetakeAppID = -1;
             bool IsLocked = false;
 
             if (clsTestAppointmentDataAccessLayer.FindTestAppiontmentID(testAppointmentID, ref testType, ref LDLAppID, ref AppointmentDate,
                 ref PaidFee, ref CreatedByUserID, ref IsLocked, ref RetakeAppID))
             {
-                return new clsTestAppointment(testAppointmentID, LDLAppID, AppointmentDate, PaidFee, CreatedByUserID, IsLocked, RetakeAppID);
+                return new clsTestAppointment(testAppointmentID, LDLAppID, (enTestType)testType ,AppointmentDate, PaidFee, CreatedByUserID, IsLocked, RetakeAppID);
             }
             else
                 return null;
@@ -78,7 +80,7 @@ namespace DVLD_BusinessLayer
             if (clsTestAppointmentDataAccessLayer.FindByLDLAppID(LDLAppID , ref testType, ref TestAppointmentID, ref AppointmentDate,
                 ref PaidFee, ref CreatedByUserID, ref IsLocked, ref RetakeAppID))
             {
-                return new clsTestAppointment(TestAppointmentID, LDLAppID, AppointmentDate, PaidFee, CreatedByUserID, IsLocked, RetakeAppID);
+                return new clsTestAppointment(TestAppointmentID, LDLAppID, (enTestType)testType, AppointmentDate, PaidFee, CreatedByUserID, IsLocked, RetakeAppID);
             }
             else
                 return null;
@@ -104,13 +106,61 @@ namespace DVLD_BusinessLayer
             return clsTestAppointmentDataAccessLayer.Update(TestAppointmentID, (int)TestType, LocalDrivingLicenseAppID, AppointmentDate, PaidFee
                 , CreatedByUserID, Is_Locked, RetakeAppID);
         }
-        static public DataTable GetAllAppointmentwithSpecificType(enTestType testType)
+        public bool Save()
         {
-            return clsTestAppointmentDataAccessLayer.GetTestAppointmentsByTestType((int)testType);
+            switch (Mode)
+            {
+                case enMode.Add:
+                    {
+                        if (_Add())
+                        {
+                            Mode = enMode.Edit;
+                            return true;
+                        }
+                        return false;
+                    }
+                case enMode.Edit:
+                    {
+                        if (_Update())
+                        {
+                            return true;
+
+
+                        }
+                        return false;
+                    }
+                default: return false;
+            }
         }
-        static public bool DoesApplicantHavePreviousTestAppointments(int ApplicantPersonID, enTestType testType)
+        static public DataTable GetAllAppointmentwithSpecificType(enTestType testType , int LDLAppID)
         {
-            return clsTestAppointmentDataAccessLayer.DoesApplicantHavePreviousTestAppointments(ApplicantPersonID,(int)testType);
+            return clsTestAppointmentDataAccessLayer.GetTestAppointmentsByTestType((int)testType,LDLAppID);
+        }
+        static public bool DoesApplicantHavePreviousTestAppointments(int LDLAppID, enTestType testType)
+        {
+            return clsTestAppointmentDataAccessLayer.DoesApplicantHavePreviousTestAppointments(LDLAppID,(int)testType);
+        }
+        static public clsTestAppointment GetLastTestAppointmentForLocalDrivingApplication(int LDLAppID, int TestTypeID )
+        {
+         
+            int TestAppointmentID = -1;
+            bool Is_Locked = false;
+            DateTime AppointmentDate = DateTime.Now;
+            int CreatedByUserID = -1;
+            decimal PaidFees = default(decimal);
+            int RetakeTestAppID = -1;
+
+            if(clsTestAppointmentDataAccessLayer.GetLastTestAppointment(LDLAppID,  TestTypeID , ref TestAppointmentID,  ref AppointmentDate,
+               ref PaidFees,ref CreatedByUserID,ref Is_Locked,ref  RetakeTestAppID))
+            {
+                return new clsTestAppointment(TestAppointmentID,LDLAppID, (enTestType)TestTypeID ,AppointmentDate,PaidFees,CreatedByUserID,Is_Locked,RetakeTestAppID);
+            }
+            else
+                return null;
+        }
+        private int _GetTestID(int TestAppointmentID)
+        {
+            return clsTestAppointmentDataAccessLayer.GetTestID(TestAppointmentID);
         }
 
     }

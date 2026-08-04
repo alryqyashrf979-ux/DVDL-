@@ -29,7 +29,7 @@ namespace DVLD
         { get { return _FilterEnabled; }
 
             set { _FilterEnabled = value;
-                gbFilter.Visible = _FilterEnabled;
+                gbFilter.Enabled = _FilterEnabled;
             }
         }
 
@@ -52,6 +52,10 @@ namespace DVLD
         public UserControlShowPersonCardWithFilter()
         {
             InitializeComponent();
+        }
+        public void LoadPersonInfo(int PersonID)
+        {
+
         }
 
         private void userControlShowPersonDetails1_Load(object sender, EventArgs e)
@@ -119,7 +123,7 @@ namespace DVLD
                 return;
 
             }
-FindNow();
+            FindNow();
 
          
         }
@@ -166,7 +170,6 @@ FindNow();
                 //if the user does not insert a digit or a control like delete then the event will not accept the input .
                 e.Handled = !char.IsDigit(e.KeyChar)&&!char.IsControl(e.KeyChar);
             }
-
         }
 
         private void UserControlShowPersonCardWithFilter_Load(object sender, EventArgs e)
@@ -177,6 +180,11 @@ FindNow();
         public void Filter_Focus()
         {
             txtfilterby.Focus();
+        }
+
+        private void gbFilter_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

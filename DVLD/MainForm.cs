@@ -103,5 +103,36 @@ namespace DVLD
            frmAddEditLocalDrivingLicenseApplication Add = new frmAddEditLocalDrivingLicenseApplication();
             Add.ShowDialog();
         }
+
+        private void RenewDrivingLicense_Click(object sender, EventArgs e)
+        {
+            frmRenewLicense renewLicenseForm = new frmRenewLicense();
+            renewLicenseForm.ShowDialog();
+
+        }
+
+        private void ReplacementForLostOrDamaged_Click(object sender, EventArgs e)
+        {
+            FrmReplaceForLostOrDamagedLicense ReplacementForm = new FrmReplaceForLostOrDamagedLicense();
+            ReplacementForm.ShowDialog();
+        }
+
+        private void driversToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmDriversList driversList = new FrmDriversList();
+            driversList.ShowDialog();
+        }
+
+        private void DetainALicense_Click(object sender, EventArgs e)
+        {
+            FrmDetainLicense DetainLicenseForm = new FrmDetainLicense();
+            DetainLicenseForm.ShowDialog();
+        }
+
+        private void ManageDetainedLicenses_Click(object sender, EventArgs e)
+        {
+            FrmManageDetainedLicenses ManageDetainLicensesform = new FrmManageDetainedLicenses();
+                    ManageDetainLicensesform.ShowDialog();
+        }
     }
 }

@@ -28,7 +28,6 @@ namespace DVLD_DataAccessLayer
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     if (reader.Read())
-
                     {
                         NationalNo = (string)reader["NationalNo"];
                         FirstName = (string)reader["FirstName"];

@@ -55,6 +55,7 @@
             this.gbFilter.TabIndex = 0;
             this.gbFilter.TabStop = false;
             this.gbFilter.Text = "Filter :";
+            this.gbFilter.Enter += new System.EventHandler(this.gbFilter_Enter);
             // 
             // btnADD
             // 

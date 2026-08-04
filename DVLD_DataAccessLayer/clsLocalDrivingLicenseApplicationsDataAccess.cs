@@ -11,7 +11,7 @@ namespace DVLD_DataAccessLayer
 {
     static public class clsLocalDrivingLicenseApplicationsDataAccess
     {
-        static public bool FindByID(int LocalDrivingLicenseApplicationID, ref int LocalDrivingLicenseAppClassID, ref int ApplicationID )
+        static public bool FindByID(int LocalDrivingLicenseApplicationID, ref int LocalDrivingLicenseAppClassID, ref int ApplicationID)
         {
             string Query = "select LocalDrivingLicenseApplicationID ,LicenseClassID, ApplicationID from LocalDrivingLicenseApplications " +
                 "where LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID ";
@@ -30,7 +30,7 @@ namespace DVLD_DataAccessLayer
                 return false;
             }
         }
-        static public bool FindByApplicationID(int ApplicationID,ref int LocalDrivingLicenseApplicationID, ref int LocalDrivingLicenseAppClassID)
+        static public bool FindByApplicationID(int ApplicationID, ref int LocalDrivingLicenseApplicationID, ref int LocalDrivingLicenseAppClassID)
         {
             string Query = "select LocalDrivingLicenseApplicationID ,LicenseClassID, ApplicationID from LocalDrivingLicenseApplications " +
                 "where ApplicationID = @ApplicationID ";
@@ -132,12 +132,12 @@ namespace DVLD_DataAccessLayer
         static public DataTable FilterLocalDrivingLicensesApplicationsUsingLicenseClass(string LicenseClass)
         {
             DataTable dataTable = new DataTable();
-            string Query = "select * from LocalDrivingLicenseApplications_View where ClassName like '%"+LicenseClass+"%'";
+            string Query = "select * from LocalDrivingLicenseApplications_View where ClassName like '%" + LicenseClass + "%'";
             using (SqlConnection conn = new SqlConnection(clsDVLDDataAccessSettings.ConnectionString))
             using (SqlCommand cmd = new SqlCommand(Query, conn))
             {
                 conn.Open();
-             
+
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)
                     dataTable.Load(reader);
@@ -191,7 +191,216 @@ namespace DVLD_DataAccessLayer
                 return dataTable;
             }
         }
-        
+        //select Found =1 from LocalDrivingLicenseApplications_View L
+        //where L.PassedTestCount =0 and L.Status ='New' and L.ClassName like '%Class 3 - Ordinary driving license%'
 
+        static public bool IsVisionTestEnabled(string ClassName, int LocalDrivingLicenseApplicationID)
+        {
+            string Query = "select Found = 1 from LocalDrivingLicenseApplications_View L  " +
+                "where L.PassedTestCount = 0 and L.Status ='New' and L.ClassName like '%" + ClassName + "%' "+
+            "and LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID";
+            using (SqlConnection conn = new SqlConnection(clsDVLDDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(Query, conn))
+            {
+                conn.Open();
+                //cmd.Parameters.AddWithValue("@ClassName",ClassName);
+                cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+                object Result = cmd.ExecuteScalar();
+
+                if (Result != null && int.TryParse(Result.ToString(), out int result))
+                {
+                    return result == 1;
+                }
+                else
+                    return false;
+            }
+        }
+
+        static public bool IsWrittenTestEnabled(string ClassName , int LocalDrivingLicenseApplicationID)
+        {
+            string Query = "select Found = 1 from LocalDrivingLicenseApplications_View L  " +
+                "where L.PassedTestCount = 1 and L.Status ='New' and L.ClassName like '%" + ClassName + "%' " +
+                "and LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID";
+            using (SqlConnection conn = new SqlConnection(clsDVLDDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(Query, conn))
+            {
+                conn.Open();
+                //cmd.Parameters.AddWithValue("@ClassName", ClassName);
+                cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+                object Result = cmd.ExecuteScalar();
+                if (Result != null && int.TryParse(Result.ToString(), out int result))
+                {
+                    return result == 1;
+                }
+                else
+                    return false;
+            }
+        }
+
+        static public bool IsStreetTestEnabled(string ClassName , int LocalDrivingLicenseApplicationID)
+        {
+            string Query = "select Found =1 from LocalDrivingLicenseApplications_View L  " +
+                "where L.PassedTestCount =2 and L.Status ='New' and L.ClassName like '%" + ClassName + "%'" +
+                "and LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID";
+            using (SqlConnection conn = new SqlConnection(clsDVLDDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(Query, conn))
+            {
+                conn.Open();
+                //cmd.Parameters.AddWithValue("@ClassName", ClassName);
+                cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+                object Result = cmd.ExecuteScalar();
+
+                if (Result != null && int.TryParse(Result.ToString(), out int result))
+                {
+                    return result == 1;
+                }
+                else
+                    return false;
+            }
+        }
+
+        static public bool DidPersonPassAllTests(string ClassName,int LDLAppID)
+        {
+            string Query = "select Found =1 from LocalDrivingLicenseApplications_View L  " +
+                "where L.PassedTestCount =3 and L.Status ='New' and L.ClassName like '%" + ClassName + "%' and LocalDrivingLicenseApplicationID = @LDLAppID";
+            using (SqlConnection conn = new SqlConnection(clsDVLDDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(Query, conn))
+            {
+                conn.Open();
+                //cmd.Parameters.AddWithValue("@ClassName", ClassName);
+                cmd.Parameters.AddWithValue("@LDLAppID", LDLAppID);
+                object Result = cmd.ExecuteScalar();
+                if (Result != null && int.TryParse(Result.ToString(), out int result))
+                {
+                    return result == 1;
+                }
+                else
+                    return false;
+            }
+
+        }
+        static public bool DoesAttendTestType(int LocalDrivingLicenseApplicationID, int TestTypeID)
+        {
+            string Query = "select top 1 * from LocalDrivingLicenseApplications LDLApps" +
+                " \r\ninner join TestAppointments TApps on TApps.LocalDrivingLicenseApplicationID = LDLApps.LocalDrivingLicenseApplicationID " +
+                "\r\ninner join tests T on T.TestAppointmentID = TApps.TestAppointmentID\r\n\r\n" +
+                "where LDLApps.LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID and TApps.TestTypeID =@TestTypeID ";
+            using (SqlConnection conn = new SqlConnection(clsDVLDDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(Query, conn))
+            {
+                conn.Open();
+                cmd.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+                cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+                object Result = cmd.ExecuteScalar();
+                return Result != null;
+
+            }
+        }
+
+        static public int CountTrials(int LocalDrivingLicenseApplicationID, int TestTypeID)
+        {
+            string Query = "select TrialCount  = count (*) from LocalDrivingLicenseApplications LDLApps \r\n" +
+                "inner join TestAppointments TApps on TApps.LocalDrivingLicenseApplicationID = LDLApps.LocalDrivingLicenseApplicationID\r\n" +
+                "inner join tests T on T.TestAppointmentID = TApps.TestAppointmentID\r\n\r\n" +
+                "where LDLApps.LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID and TApps.TestTypeID =@TestTypeID ; select SCOPE_IDENTITY() ;";
+            using (SqlConnection conn = new SqlConnection(clsDVLDDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(Query, conn))
+            {
+                conn.Open();
+                cmd.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+                cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+                object Result = cmd.ExecuteScalar();
+                if (Result != null && int.TryParse(Result.ToString(), out int Count))
+                {
+                    return Count;
+                }
+                else
+                    return 0;
+            }
+        }
+        static public bool IsThereAnActiveScheduledTest(int LocalDrivingLicenseApplicationID, int TestTypeID)
+
+        {
+            string Query = "\r\nselect TrialCount  = count (*) from LocalDrivingLicenseApplications LDLApps " +
+                "\r\ninner join TestAppointments TApps on TApps.LocalDrivingLicenseApplicationID = LDLApps.LocalDrivingLicenseApplicationID" +
+                "\r\nwhere LDLApps. LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID and TApps.TestTypeID = @TestTypeID" +
+                " and TApps.IsLocked = 0";
+            using (SqlConnection conn = new SqlConnection(clsDVLDDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(Query, conn))
+            {
+                conn.Open();
+                cmd.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+                cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+                object Result = cmd.ExecuteScalar();
+                if (Result != null && int.TryParse(Result.ToString(), out int Count))
+                {
+                    return Count > 0;
+                }
+                else
+                    return false;
+            }
+        }
+        static public bool DidPassPreviousTestType(int LocalDrivingLicenseApplicationID, int TestTypeID)
+
+        {
+            string Query = "select Count(*)from LocalDrivingLicenseApplications LDLApp inner join TestAppointments TA " +
+                "on TA.LocalDrivingLicenseApplicationID = LDLApp.LocalDrivingLicenseApplicationID" +
+                "\r\ninner join Tests T on T.TestAppointmentID = TA.TestAppointmentID \r\nwhere LDLApp. " +
+                "LocalDrivingLicenseApplicationID =@LocalDrivingLicenseApplicationID and TA.TestTypeID =@TestTypeID and T.TestResult =1";
+            using (SqlConnection conn = new SqlConnection(clsDVLDDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(Query, conn))
+            {
+                conn.Open();
+                cmd.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+                cmd.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+                object Result = cmd.ExecuteScalar();
+                if (Result != null && int.TryParse(Result.ToString(), out int Count))
+                {
+                    return Count > 0;
+                }
+                else
+                    return false;
+            }
+
+        }
+        static public int GetPersonIDByLocalDrivingLicenseApplication(int LDLAppID)
+        {
+            string Query = "\r\nselect A.ApplicantPersonID from LocalDrivingLicenseApplications L" +
+                " inner join Applications A on L.ApplicationID = A.ApplicationID where LocalDrivingLicenseApplicationID= @LDLAppID";
+            using (SqlConnection conn = new SqlConnection(clsDVLDDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(Query, conn))
+            {
+                conn.Open();
+                cmd.Parameters.AddWithValue("@LDLAppID", LDLAppID);
+                object Result = cmd.ExecuteScalar();
+                if (Result != null && int.TryParse(Result.ToString(), out int PersonID))
+                {
+                    return PersonID;
+                }
+                else
+                    return -1;
+            }
+        }
+
+        static public int GetActiveLicenseID(int PersonID, int LicenseClassID)
+        {
+            string Query = "select L.LicenseID from  Licenses L inner join Drivers D on L.DriverID = D.DriverID " +
+                "\r\nwhere L.LicenseClass = @LicenseClassID and D.PersonID = @PersonID and L.IsActive = 1 ";
+            using (SqlConnection conn = new SqlConnection(clsDVLDDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(Query, conn))
+            {
+                conn.Open();
+                cmd.Parameters.AddWithValue("@PersonID", PersonID);
+                cmd.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+                object Result = cmd.ExecuteScalar();
+                if (Result != null && int.TryParse(Result.ToString(), out int result))
+                {
+                    return result;
+                }
+                else
+                    return -1;
+            }
+
+            }
     }
 }

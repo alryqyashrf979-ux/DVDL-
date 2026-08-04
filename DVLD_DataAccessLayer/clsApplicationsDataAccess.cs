@@ -130,6 +130,7 @@ namespace DVLD_DataAccessLayer
             using (SqlCommand cmd = new SqlCommand(Query, conn))
             {
                 conn.Open();
+                cmd.Parameters.AddWithValue("@ApplicationID", ApplicationID);
                 cmd.Parameters.Add("@ApplicationStatus", SqlDbType.TinyInt).Value = ApplicationStatus;
                 cmd.Parameters.AddWithValue("@LastStatusDate", LastStatusDate);
               

@@ -134,6 +134,7 @@
             this.RenewDrivingLicense.Name = "RenewDrivingLicense";
             this.RenewDrivingLicense.Size = new System.Drawing.Size(487, 32);
             this.RenewDrivingLicense.Text = "Renew Driving License.";
+            this.RenewDrivingLicense.Click += new System.EventHandler(this.RenewDrivingLicense_Click);
             // 
             // ReplacementForLostOrDamaged
             // 
@@ -141,6 +142,7 @@
             this.ReplacementForLostOrDamaged.Name = "ReplacementForLostOrDamaged";
             this.ReplacementForLostOrDamaged.Size = new System.Drawing.Size(487, 32);
             this.ReplacementForLostOrDamaged.Text = "Replacement for Lost or Damaged License.";
+            this.ReplacementForLostOrDamaged.Click += new System.EventHandler(this.ReplacementForLostOrDamaged_Click);
             // 
             // ReleaseDetainedDrivingLicense
             // 
@@ -173,6 +175,7 @@
             this.ManageDetainedLicenses.Name = "ManageDetainedLicenses";
             this.ManageDetainedLicenses.Size = new System.Drawing.Size(341, 32);
             this.ManageDetainedLicenses.Text = "Manage Detained Licenses";
+            this.ManageDetainedLicenses.Click += new System.EventHandler(this.ManageDetainedLicenses_Click);
             // 
             // DetainALicense
             // 
@@ -180,6 +183,7 @@
             this.DetainALicense.Name = "DetainALicense";
             this.DetainALicense.Size = new System.Drawing.Size(341, 32);
             this.DetainALicense.Text = "Detain a License";
+            this.DetainALicense.Click += new System.EventHandler(this.DetainALicense_Click);
             // 
             // ReleaseADetainedLicense
             // 
@@ -243,6 +247,7 @@
             this.driversToolStripMenuItem.Name = "driversToolStripMenuItem";
             this.driversToolStripMenuItem.Size = new System.Drawing.Size(114, 32);
             this.driversToolStripMenuItem.Text = "Drivers.";
+            this.driversToolStripMenuItem.Click += new System.EventHandler(this.driversToolStripMenuItem_Click);
             // 
             // usersToolStripMenuItem
             // 

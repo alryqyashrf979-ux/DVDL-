@@ -3,8 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using static DVLD_BusinessLayer.clsLicense;
 using static DVLD_BusinessLayer.clsLocalDrivingLicenseApplication;
 
 namespace DVLD_BusinessLayer
@@ -167,5 +169,90 @@ namespace DVLD_BusinessLayer
         {
             return clsLocalDrivingLicenseApplicationsDataAccess.FilterLocalDrivingLicensesApplicationsUsingStatus(StatusText);
         }
+        static public bool IsVisionTestEnabled(string ClassName, int LDLAppID)
+        {
+            return clsLocalDrivingLicenseApplicationsDataAccess.IsVisionTestEnabled(ClassName,LDLAppID);
+        }
+        static public bool IsWrittenTestEnabled(string ClassName,int LDLAppID)
+        {
+            return clsLocalDrivingLicenseApplicationsDataAccess.IsWrittenTestEnabled(ClassName,LDLAppID);
+        }
+        static public bool IsStreetTestEnabled(string ClassName , int LDLAppID)
+        {
+            return clsLocalDrivingLicenseApplicationsDataAccess.IsStreetTestEnabled(ClassName, LDLAppID );
+        }
+        static public bool DidPersonPassAllTests(string ClassName,int LDLAppID)
+        {
+            return clsLocalDrivingLicenseApplicationsDataAccess.DidPersonPassAllTests(ClassName,LDLAppID);
+        }
+        public bool DoesAttendTestType(int TestTypeID)
+        {
+            return clsLocalDrivingLicenseApplicationsDataAccess.DoesAttendTestType(LocalDrivingLicenseApplicationID, TestTypeID);
+        }
+        public int TrialCountPerTestType(int TestTypeID)
+        {
+            return clsLocalDrivingLicenseApplicationsDataAccess.CountTrials(LocalDrivingLicenseApplicationID,TestTypeID);
+        }
+        public bool IsThereAnActiveScheduledTest(int TestTypeID)
+        {
+            return clsLocalDrivingLicenseApplicationsDataAccess.IsThereAnActiveScheduledTest(LocalDrivingLicenseApplicationID, TestTypeID);
+        }
+        public bool DidPassPreviousTestType(int TestTypeID)
+        {
+            return clsLocalDrivingLicenseApplicationsDataAccess.DidPassPreviousTestType(LocalDrivingLicenseApplicationID, TestTypeID);
+        }
+        static public int GetPersonIDByLocalDrivingLicenseApplication(int LDLAppID)
+        {
+            return clsLocalDrivingLicenseApplicationsDataAccess.GetPersonIDByLocalDrivingLicenseApplication(LDLAppID);
+        }
+        public int IssueLicenseForTheFirstTime(string Note, int CreatedByUserID)
+        {
+            clsDrivers Driver = clsDrivers.FindByPersonID(this._ApplicantPersonID);
+            if (Driver == null)
+            {
+                Driver = new clsDrivers();
+                Driver.CreationDate = DateTime.Now;
+                Driver.CreatedByUserID = CreatedByUserID;
+                Driver.PersonID = this._ApplicantPersonID;
+
+                if (Driver.Add())
+                {
+                    if (Driver.DriverID != -1)
+                    {
+
+                        clsLicense license = new clsLicense();
+                        license.DriverID = Driver.DriverID;
+                        license.CreatedByUserID = CreatedByUserID;
+                        license.IssueDate = DateTime.Now;
+                        license.ExpirationDate = DateTime.Now.AddYears(LicenseClass.DefaultValidityLength);
+                        license.IsActive = true;
+                        license.ApplicationID = this.ApplicationID;
+                        license.Note = Note;
+                        license.IssueReason = enIssueReason.FirstTime;
+                        license.PaidFees = this.LicenseClass.ClassFee;
+                        license.LicenseClassID = this.LicenseClassID;
+
+                        if (license.Save())
+                        {
+                            this.setComplete();
+                            return license.LicenseID;
+                        }
+                        else
+                            return -1;
+                    }
+                    return -1;
+                }
+                return -1;
+            }
+            return -1;
+        }
+
+        public int GetActiveLicenseID()
+        {
+            return clsLocalDrivingLicenseApplicationsDataAccess.GetActiveLicenseID(this._ApplicantPersonID, this.LicenseClassID);
+        }
+
+
+
     }
 }

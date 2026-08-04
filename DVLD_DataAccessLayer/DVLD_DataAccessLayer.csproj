@@ -46,10 +46,14 @@
   <ItemGroup>
     <Compile Include="clsApplicationsDataAccess.cs" />
     <Compile Include="clsApplicationTypesDataAccessLayer.cs" />
+    <Compile Include="clsDetainedLicensesDataAccessLayer.cs" />
+    <Compile Include="clsDriversDataAccess.cs" />
     <Compile Include="clsLicenseClassesDataAccess.cs" />
+    <Compile Include="clsLicenseDataAccess.cs" />
     <Compile Include="clsLocalDrivingLicenseApplicationsDataAccess.cs" />
     <Compile Include="clsPeopleDataAccessLayer.cs" />
     <Compile Include="clsDVLDDataAccessSettings.cs" />
+    <Compile Include="clsTestsDataAccessLayer.cs" />
     <Compile Include="clsTestAppointmentDataAccessLayer.cs" />
     <Compile Include="clsTestManagementDataAccessLayer.cs" />
     <Compile Include="clsUserDataAccessLayer.cs" />
