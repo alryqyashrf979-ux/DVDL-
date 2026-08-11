@@ -46,22 +46,22 @@ namespace DVLD
                     picbPersonImage.Image = Properties.Resources.Female_512;
                 }
                 else
-                    picbPersonImage.Image = Properties.Resources.Male_512;
+                   picbPersonImage.Image = Properties.Resources.Male_512;
             }
         }
         public void SetDefaultValues()
         {
-            LBclass.Text = "[???]";
-            lbName.Text = "[???]";
-            LbNationalNo.Text = "[???]";
-            lbLicenseID.Text =      "[???]";
-            LbGendre.Text =         "[F/M]";
-            lbIssueDate.Text =      "[dd/mm/yyyy]";
-            LbIssueReason.Text =    "[???]";
-            lbNote.Text =           "[???]";
-            lbDriverID.Text =       "[???]";
-            LbIsActive.Text =       "[???]";
-            LbBirthdate.Text = "[dd/mm/yyyy]";
+            LBclass.Text =            "[???]";
+            lbName.Text =             "[???]";
+            LbNationalNo.Text =       "[???]";
+            lbLicenseID.Text =        "[???]";
+            LbGendre.Text =           "[F/M]";
+            lbIssueDate.Text =        "[dd/mm/yyyy]";
+            LbIssueReason.Text =      "[???]";
+            lbNote.Text =             "[???]";
+            lbDriverID.Text =         "[???]";
+            LbIsActive.Text =         "[???]";
+            LbBirthdate.Text =        "[dd/mm/yyyy]";
             LbExpiratationDate.Text = "[dd/mm/yyyy]";
             picbPersonImage.Image = Properties.Resources.Person_32;
         }
@@ -102,7 +102,7 @@ namespace DVLD
             {
                 _TransferDataFromObjToForm();
                 _HandlePersonImage();
-             
+      
             }
 
         }

@@ -36,7 +36,7 @@ namespace DVLD
             _DriverID = _Driver.DriverID;
             tabControl1.SelectedIndex = 0;
             dgvLocalDrivingLicenses.DataSource = _Driver.GetAllLocalDrivingLicensesForDriver();
-            // dgvinternationalLicenses 
+            dgvInternationalDrivingLicenses.DataSource = _Driver.GetAllInternationalDrivingLicensesForDriver();
             lbRecords.Text = dgvLocalDrivingLicenses.Rows.Count.ToString();
         }
         public void LoadDataToControlUsingPeronsID(int PersonID)
@@ -51,7 +51,7 @@ namespace DVLD
             _DriverID = _Driver.DriverID;
             tabControl1.SelectedIndex = 0;
             dgvLocalDrivingLicenses.DataSource = _Driver.GetAllLocalDrivingLicensesForDriver();
-            // dgvinternationalLicenses 
+            dgvInternationalDrivingLicenses.DataSource = _Driver.GetAllInternationalDrivingLicensesForDriver();
             lbRecords.Text = dgvLocalDrivingLicenses.Rows.Count.ToString();
         }
 
@@ -81,6 +81,11 @@ namespace DVLD
             frmShowDrivingLicense DrivingLicenseInfo = new frmShowDrivingLicense (LicenseID)
                 ;
             DrivingLicenseInfo.ShowDialog();
+        }
+
+        private void dgvInternationalDrivingLicenses_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

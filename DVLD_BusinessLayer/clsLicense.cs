@@ -205,7 +205,7 @@ namespace DVLD_BusinessLayer
            
             return clsLicenseDataAccess.DoesLicenesExistByApplicationID(ApplicationID);
         }
-        static bool DoesLicenesExistByLicenseID(int LicenseID)
+        static public bool DoesLicenesExistByLicenseID(int LicenseID)
         {
             return clsLicenseDataAccess.DoesLicenesExistByLicenseID(LicenseID);
         }
@@ -318,7 +318,42 @@ namespace DVLD_BusinessLayer
 
             return this.DetainLicenseInfo.Release( CurrentUserID, Application.ApplicationID);
         }
-   
-      
+        public int IssueInternationalLicense(int CurrentUserID)
+        {
+            //First Create Applicaiton 
+            clsApplications Application = new clsApplications();
+
+            Application._ApplicantPersonID = this.Driver.PersonID;
+            Application.ApplicationDate = DateTime.Now;
+            // 6 refers to Application of type release 
+            Application.ApplicationTypeID = 6;
+            Application.Status = clsApplications.enApplicationStatus.completed;
+            Application.LastStatusDate = DateTime.Now;
+            Application.PaidFees = clsApplicationTypes.GetTypeOfApplication(5).ApplicationTypeFee;
+            Application.CreatedByUserID = CurrentUserID;
+
+            if (!Application.Save())
+            {
+                ApplicationID = -1;
+                return -1;
+            }
+
+            clsInternationalLicense internationalLicense = new clsInternationalLicense();
+            internationalLicense.ApplicationID = Application.ApplicationID;
+            internationalLicense.ExpirationDate = DateTime.Now.AddYears(1);
+            internationalLicense.DriverID = this.DriverID;
+            internationalLicense.createdByUserID = CurrentUserID;
+            internationalLicense.IsActive = true;
+            internationalLicense.IssueDate = DateTime.Now;
+            internationalLicense.LocalDrivingLicenseID = this._LicenseID;
+            if (!internationalLicense.Save())
+                return -1;
+            else
+                return internationalLicense.InternationalLicenseID;
+        }
+
+
+
+
+        }
     }
-}

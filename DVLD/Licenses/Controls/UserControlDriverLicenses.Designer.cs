@@ -109,13 +109,13 @@
             this.cmsLocalLicenses.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showLicenseInfoToolStripMenuItem});
             this.cmsLocalLicenses.Name = "cmsLocalLicenses";
-            this.cmsLocalLicenses.Size = new System.Drawing.Size(215, 58);
+            this.cmsLocalLicenses.Size = new System.Drawing.Size(208, 30);
             // 
             // showLicenseInfoToolStripMenuItem
             // 
             this.showLicenseInfoToolStripMenuItem.Image = global::DVLD.Properties.Resources.Local_Driving_License_5121;
             this.showLicenseInfoToolStripMenuItem.Name = "showLicenseInfoToolStripMenuItem";
-            this.showLicenseInfoToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.showLicenseInfoToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
             this.showLicenseInfoToolStripMenuItem.Text = "Show License info .";
             this.showLicenseInfoToolStripMenuItem.Click += new System.EventHandler(this.showLicenseInfoToolStripMenuItem_Click);
             // 
@@ -146,6 +146,7 @@
             this.dgvInternationalDrivingLicenses.RowTemplate.Height = 26;
             this.dgvInternationalDrivingLicenses.Size = new System.Drawing.Size(1520, 161);
             this.dgvInternationalDrivingLicenses.TabIndex = 0;
+            this.dgvInternationalDrivingLicenses.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInternationalDrivingLicenses_CellContentClick);
             // 
             // cmsInternationalLicenses
             // 

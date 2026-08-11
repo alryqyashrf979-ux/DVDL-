@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -267,6 +268,27 @@ namespace DVLD_DataAccessLayer
                           ", L.IssueDate as 'Issue Date', L.ExpirationDate as 'Expiration Date' , L.IsActive as 'Is Active' " +
                           "from Licenses L inner join Applications A on A.ApplicationID = L.ApplicationID inner join LicenseClasses LC " +
                           "on LC.LicenseClassID = L.LicenseClass" + " where  L.DriverID = @DriverID and A.ApplicationTypeID = 1;";
+            using (SqlConnection conn = new SqlConnection(clsDVLDDataAccessSettings.ConnectionString))
+            using (SqlCommand cmd = new SqlCommand(Query, conn))
+            {
+                conn.Open();
+                cmd.Parameters.AddWithValue("@DriverID", DriverID);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                    table.Load(reader);
+            }
+            return table;
+        }
+        static public DataTable GetAllInternationalDrivingLicensesForDriver(int DriverID)
+
+        {
+            DataTable table = new DataTable();
+            string Query = " select IL.InternationalLicenseID as ' International License ID ' , A.ApplicationID as 'App ID' " +
+                ", LC.ClassName as 'Class Name',\r\n                           IL.IssueDate as 'Issue Date', IL.ExpirationDate as 'Expiration Date' " +
+                ", IL.IsActive as 'Is Active' \r\n                          from InternationalLicenses IL inner join Applications A " +
+                "on A.ApplicationID = IL.ApplicationID inner join\r\n\t\t\t\t\t\t  Licenses L on L.LicenseID = IL.IssuedUsingLocalLicenseID " +
+                "inner join \r\n\t\t\t\t\t\t  LicenseClasses LC on LC.LicenseClassID = L.LicenseClass \r\n                    " +
+                "   where  IL.DriverID = @DriverID and A.ApplicationTypeID = 6 ;";
             using (SqlConnection conn = new SqlConnection(clsDVLDDataAccessSettings.ConnectionString))
             using (SqlCommand cmd = new SqlCommand(Query, conn))
             {

@@ -74,3 +74,7 @@ C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.UserControlDriverLicense
 C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.FrmDetainLicense.resources
 C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.FrmManageDetainedLicenses.resources
 C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.FrmReleaseLicense.resources
+C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.FrmManageInternationalLicenses.resources
+C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.FrmInternationalLicenseInfo.resources
+C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.UserControlInternationalLicenseInfo.resources
+C:\Users\ALSAKHRA PC\Desktop\MyDVLD\DVLD\obj\Debug\DVLD.FrmIssueInternationalDrivingLicense.resources

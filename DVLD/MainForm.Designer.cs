@@ -216,6 +216,7 @@
             this.InternationalDrivingLicenseApplications.Name = "InternationalDrivingLicenseApplications";
             this.InternationalDrivingLicenseApplications.Size = new System.Drawing.Size(480, 32);
             this.InternationalDrivingLicenseApplications.Text = "International Driving License Applications.";
+            this.InternationalDrivingLicenseApplications.Click += new System.EventHandler(this.InternationalDrivingLicenseApplications_Click);
             // 
             // ManageApplicationsTypes
             // 

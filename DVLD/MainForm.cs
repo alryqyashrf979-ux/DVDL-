@@ -134,5 +134,11 @@ namespace DVLD
             FrmManageDetainedLicenses ManageDetainLicensesform = new FrmManageDetainedLicenses();
                     ManageDetainLicensesform.ShowDialog();
         }
+
+        private void InternationalDrivingLicenseApplications_Click(object sender, EventArgs e)
+        {
+            FrmManageInternationalLicenses manageInternationalLicenses = new FrmManageInternationalLicenses();
+            manageInternationalLicenses.ShowDialog();
+        }
     }
 }

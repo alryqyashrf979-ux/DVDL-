@@ -48,6 +48,7 @@
     <Compile Include="clsApplicationTypesDataAccessLayer.cs" />
     <Compile Include="clsDetainedLicensesDataAccessLayer.cs" />
     <Compile Include="clsDriversDataAccess.cs" />
+    <Compile Include="clsInternationalLicenseDataAccess.cs" />
     <Compile Include="clsLicenseClassesDataAccess.cs" />
     <Compile Include="clsLicenseDataAccess.cs" />
     <Compile Include="clsLocalDrivingLicenseApplicationsDataAccess.cs" />
