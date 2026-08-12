@@ -109,22 +109,22 @@
     <Compile Include="Applications\ReleaseDrivingLicense\FrmReleaseLicense.Designer.cs">
       <DependentUpon>FrmReleaseLicense.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmInternationalLicenseInfo.cs">
+    <Compile Include="Applications\InternationalDrivingLicense\FrmInternationalLicenseInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmInternationalLicenseInfo.Designer.cs">
+    <Compile Include="Applications\InternationalDrivingLicense\FrmInternationalLicenseInfo.Designer.cs">
       <DependentUpon>FrmInternationalLicenseInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmIssueInternationalDrivingLicense.cs">
+    <Compile Include="Applications\InternationalDrivingLicense\FrmIssueInternationalDrivingLicense.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmIssueInternationalDrivingLicense.Designer.cs">
+    <Compile Include="Applications\InternationalDrivingLicense\FrmIssueInternationalDrivingLicense.Designer.cs">
       <DependentUpon>FrmIssueInternationalDrivingLicense.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmManageInternationalLicenses.cs">
+    <Compile Include="Applications\InternationalDrivingLicense\FrmManageInternationalLicenses.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmManageInternationalLicenses.Designer.cs">
+    <Compile Include="Applications\InternationalDrivingLicense\FrmManageInternationalLicenses.Designer.cs">
       <DependentUpon>FrmManageInternationalLicenses.cs</DependentUpon>
     </Compile>
     <Compile Include="Licenses\FrmManageDetainedLicenses.cs">
@@ -217,10 +217,10 @@
     <Compile Include="Licenses\Controls\UserControlDriverLicenses.Designer.cs">
       <DependentUpon>UserControlDriverLicenses.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControlInternationalLicenseInfo.cs">
+    <Compile Include="Applications\InternationalDrivingLicense\InternationalLicenseUserControl\UserControlInternationalLicenseInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControlInternationalLicenseInfo.Designer.cs">
+    <Compile Include="Applications\InternationalDrivingLicense\InternationalLicenseUserControl\UserControlInternationalLicenseInfo.Designer.cs">
       <DependentUpon>UserControlInternationalLicenseInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Users\frmAddEditUser.cs">
@@ -340,13 +340,13 @@
     <EmbeddedResource Include="Applications\ReleaseDrivingLicense\FrmReleaseLicense.resx">
       <DependentUpon>FrmReleaseLicense.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmInternationalLicenseInfo.resx">
+    <EmbeddedResource Include="Applications\InternationalDrivingLicense\FrmInternationalLicenseInfo.resx">
       <DependentUpon>FrmInternationalLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmIssueInternationalDrivingLicense.resx">
+    <EmbeddedResource Include="Applications\InternationalDrivingLicense\FrmIssueInternationalDrivingLicense.resx">
       <DependentUpon>FrmIssueInternationalDrivingLicense.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmManageInternationalLicenses.resx">
+    <EmbeddedResource Include="Applications\InternationalDrivingLicense\FrmManageInternationalLicenses.resx">
       <DependentUpon>FrmManageInternationalLicenses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Licenses\FrmManageDetainedLicenses.resx">
@@ -394,7 +394,7 @@
     <EmbeddedResource Include="Licenses\Controls\UserControlDriverLicenses.resx">
       <DependentUpon>UserControlDriverLicenses.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControlInternationalLicenseInfo.resx">
+    <EmbeddedResource Include="Applications\InternationalDrivingLicense\InternationalLicenseUserControl\UserControlInternationalLicenseInfo.resx">
       <DependentUpon>UserControlInternationalLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\Current User Info .resx">

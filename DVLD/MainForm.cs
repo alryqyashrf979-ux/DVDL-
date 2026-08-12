@@ -140,5 +140,29 @@ namespace DVLD
             FrmManageInternationalLicenses manageInternationalLicenses = new FrmManageInternationalLicenses();
             manageInternationalLicenses.ShowDialog();
         }
+
+        private void InternationalDrivingLicense_Click(object sender, EventArgs e)
+        {
+            FrmIssueInternationalDrivingLicense IssueInternationalDrivingLicenseInfoForm = new FrmIssueInternationalDrivingLicense();
+            IssueInternationalDrivingLicenseInfoForm.ShowDialog();
+
+        }
+
+        private void ReleaseADetainedLicense_Click(object sender, EventArgs e)
+        {
+            FrmReleaseLicense ReleaseLicenseForm = new FrmReleaseLicense();
+            ReleaseLicenseForm.ShowDialog();
+        }
+
+        private void ReleaseDetainedDrivingLicense_Click(object sender, EventArgs e)
+        {
+            FrmReleaseLicense ReleaseLicenseForm = new FrmReleaseLicense();
+            ReleaseLicenseForm.ShowDialog();
+        }
+
+        private void RetakeATest_Click(object sender, EventArgs e)
+        {
+           
+        }
     }
 }

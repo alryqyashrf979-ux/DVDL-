@@ -38,7 +38,6 @@
             this.RenewDrivingLicense = new System.Windows.Forms.ToolStripMenuItem();
             this.ReplacementForLostOrDamaged = new System.Windows.Forms.ToolStripMenuItem();
             this.ReleaseDetainedDrivingLicense = new System.Windows.Forms.ToolStripMenuItem();
-            this.RetakeATest = new System.Windows.Forms.ToolStripMenuItem();
             this.DetainLicense = new System.Windows.Forms.ToolStripMenuItem();
             this.ManageDetainedLicenses = new System.Windows.Forms.ToolStripMenuItem();
             this.DetainALicense = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,8 +95,7 @@
             this.NewDrivingLicense,
             this.RenewDrivingLicense,
             this.ReplacementForLostOrDamaged,
-            this.ReleaseDetainedDrivingLicense,
-            this.RetakeATest});
+            this.ReleaseDetainedDrivingLicense});
             this.drivingLicenseServicesToolStripMenuItem.Image = global::DVLD.Properties.Resources.New_Driving_License_32;
             this.drivingLicenseServicesToolStripMenuItem.Name = "drivingLicenseServicesToolStripMenuItem";
             this.drivingLicenseServicesToolStripMenuItem.Size = new System.Drawing.Size(357, 32);
@@ -127,6 +125,7 @@
             this.InternationalDrivingLicense.Name = "InternationalDrivingLicense";
             this.InternationalDrivingLicense.Size = new System.Drawing.Size(363, 32);
             this.InternationalDrivingLicense.Text = "International Driving License.";
+            this.InternationalDrivingLicense.Click += new System.EventHandler(this.InternationalDrivingLicense_Click);
             // 
             // RenewDrivingLicense
             // 
@@ -150,13 +149,7 @@
             this.ReleaseDetainedDrivingLicense.Name = "ReleaseDetainedDrivingLicense";
             this.ReleaseDetainedDrivingLicense.Size = new System.Drawing.Size(487, 32);
             this.ReleaseDetainedDrivingLicense.Text = "Release Detained Driving License.";
-            // 
-            // RetakeATest
-            // 
-            this.RetakeATest.Image = global::DVLD.Properties.Resources.Retake_Test_32;
-            this.RetakeATest.Name = "RetakeATest";
-            this.RetakeATest.Size = new System.Drawing.Size(487, 32);
-            this.RetakeATest.Text = "Retake a test .";
+            this.ReleaseDetainedDrivingLicense.Click += new System.EventHandler(this.ReleaseDetainedDrivingLicense_Click);
             // 
             // DetainLicense
             // 
@@ -191,6 +184,7 @@
             this.ReleaseADetainedLicense.Name = "ReleaseADetainedLicense";
             this.ReleaseADetainedLicense.Size = new System.Drawing.Size(341, 32);
             this.ReleaseADetainedLicense.Text = "Release a Detain License";
+            this.ReleaseADetainedLicense.Click += new System.EventHandler(this.ReleaseADetainedLicense_Click);
             // 
             // ManageApps
             // 
@@ -343,7 +337,6 @@
         private System.Windows.Forms.ToolStripMenuItem RenewDrivingLicense;
         private System.Windows.Forms.ToolStripMenuItem ReplacementForLostOrDamaged;
         private System.Windows.Forms.ToolStripMenuItem ReleaseDetainedDrivingLicense;
-        private System.Windows.Forms.ToolStripMenuItem RetakeATest;
         private System.Windows.Forms.ToolStripMenuItem LocalDrivingLicense;
         private System.Windows.Forms.ToolStripMenuItem InternationalDrivingLicense;
         private System.Windows.Forms.ToolStripMenuItem ManageDetainedLicenses;
